@@ -5,9 +5,9 @@ from services.models import Services
 
 # Create your models here.
 SERVICES_TYPES = (
-    ("online individual therapy", "Online Individual Therapy"),
-    ("online family therapy", "Online Family Therapy"),
-    ("workshop", "Workshop")
+    ("consulta en línea personalizada", "Consulta en Línea Personalizada"),
+    ("terapia individual y familiar en línea", "Terapia individual y Familiar en Línea"),
+    ("talleres y grupos de apoyo en línea y presencial", "Talleres y Grupos de Apoyo en Línea y Presencial")
 )
 
 TIME_CHOICES = []
@@ -23,18 +23,18 @@ while start_time < end_time:
 class Booking(models.Model):
     """ A model for booking an appointment """
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
-    first_name = models.CharField(max_length=20, blank=True, null=True)
-    last_name = models.CharField(max_length=20, blank=True, null=True)
+    nombre = models.CharField(max_length=20, blank=True, null=True)
+    apellido = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField()
-    service = models.ForeignKey(Services, on_delete=models.CASCADE, related_name="booking", default=1)
-    date = models.DateField(default=datetime.now, blank=True)
-    time = models.CharField(max_length=20, choices=TIME_CHOICES, default="09:00 - 10:00")
-    notes = models.TextField(blank=True)
+    servicio = models.ForeignKey(Services, on_delete=models.CASCADE, related_name="booking", default=1)
+    fecha = models.DateField(default=datetime.now, blank=True)
+    hora = models.CharField(max_length=20, choices=TIME_CHOICES, default="09:00 - 10:00")
+    comentarios = models.TextField(blank=True)
 
     class Meta:
         """ Order bookings by date """
-        ordering = ["-date"]
-        unique_together = ['date', 'time']
+        ordering = ["-fecha"]
+        unique_together = ['fecha', 'hora']
 
     def __str__(self):
-        return f"{self.user.username} - {self.date} - {self.time}"
+        return f"{self.user.username} - {self.fecha} - {self.hora}"

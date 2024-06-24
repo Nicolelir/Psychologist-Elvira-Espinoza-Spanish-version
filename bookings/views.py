@@ -33,20 +33,21 @@ class AddBooking(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         # Set the current user as the booking user
         form.instance.user = self.request.user
-        selected_date = form.cleaned_data.get('date')
-        selected_time_str = form.cleaned_data.get('time')
+        selected_date = form.cleaned_data.get('fecha')
+        selected_time_str = form.cleaned_data.get('hora')
 
         # Get the current date and time
         current_datetime = timezone.now()
 
-        # Check if date is in the past
+       # Check if date is in the past
+        selected_time = datetime.strptime(selected_time_str.split(' - ')[0], '%H:%M').time()
         if (selected_date < current_datetime.date() or
             (selected_date == current_datetime.date() and
-            datetime.strptime(selected_time_str.split(' - ')[0], '%H:%M').time() < current_datetime.time())):
-            form.add_error('date', 'Please enter a valid date')
+             selected_time < current_datetime.time())):
+            form.add_error('fecha', 'Por favor ingrese una fecha válida')
             return self.form_invalid(form)
 
-        messages.success(self.request, "Thank you for booking an appointment with me! Don't forget to leave a review after your session")
+        messages.success(self.request, "¡Gracias por agendar una hora conmigo! No olvides dejar una reseña después de tu sesión.")
         return super().form_valid(form)
 
 # UserPassesTestMixin:This mixin allows to define custom permission checks for a view. 
@@ -77,10 +78,10 @@ class EditBooking(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
                 date=new_date,
                 time=new_time).exclude(pk=self.object.pk).first()
             if existing_booking:
-                form.add_error('time', 'This time and date is already booked, Please select another time and date')
+                form.add_error('time', 'Esta fecha y hora ya estan tomadas, por favor escoge otra')
                 return self.form_invalid(form)
 
-        messages.success(self.request, "Your booking has been updated.")
+        messages.success(self.request, "Tu reserva ha sido actualizada.")
 
         return super().form_valid(form)
 
@@ -98,6 +99,6 @@ class DeleteBooking(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
     def delete(self, request, *args, **kwargs):
         # Display success message
-        messages.success(self.request, "Your booking has been deleted.")
+        messages.success(self.request, "Tu reserva ha sido eliminada.")
 
         return super().delete(request, *args, **kwargs)

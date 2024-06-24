@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import Booking
+from datetime import datetime, timedelta
 
 class BookingForm(forms.ModelForm):
     """A form to add a booking"""
@@ -11,30 +12,30 @@ class BookingForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         if user:
           self.fields['email'].initial = user.email
-        self.fields['first_name'].required = True
-        self.fields['last_name'].required = True
-        self.fields['service'].required = True
-        self.fields['date'].required = True
+        self.fields['nombre'].required = True
+        self.fields['apellido'].required = True
+        self.fields['servicio'].required = True
+        self.fields['fecha'].required = True
 
-        self.fields['first_name'].label = "First Name"
-        self.fields['last_name'].label = "Last Name"
-        self.fields['service'].label = "Service"
-        self.fields['date'].widget = forms.DateInput(attrs={'type': 'date'})
+        self.fields['nombre'].label = "Nombre"
+        self.fields['apellido'].label = "Apellido"
+        self.fields['servicio'].label = "Servicio"
+        self.fields['fecha'].widget = forms.DateInput(attrs={'type': 'date'})
 
     def clean(self):
         cleaned_data = super().clean()
-        date = cleaned_data.get('date')
-        time = cleaned_data.get('time')
+        fecha = cleaned_data.get('fecha')
+        hora = cleaned_data.get('hora')
 
         # Check if a booking with the same date and time already exists
-        if (date and time and
-                Booking.objects.filter(date=date, time=time).exists()):
-            self.add_error('time', 'This date and time is already booked. Please choose another day and time')
+        if (fecha and hora and
+                Booking.objects.filter(fecha=fecha, hora=hora).exists()):
+            self.add_error('hora', 'Esta fecha y hora ya ha sido seleccionada, por favor escoge otra')
 
     class Meta:
         model = Booking
         fields = [
-            'first_name', 'last_name', 'email', 'service', 'date', 'time'
+            'nombre', 'apellido', 'email', 'servicio', 'fecha', 'hora'
         ]
 
     

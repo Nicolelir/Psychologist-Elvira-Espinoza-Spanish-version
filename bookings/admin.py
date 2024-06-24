@@ -5,4 +5,4 @@ from .models import Booking
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
     list_display = [
-        'user', 'first_name', 'last_name', 'email', 'service','date', 'time']
+        'user', 'nombre', 'apellido', 'email', 'servicio','fecha', 'hora']

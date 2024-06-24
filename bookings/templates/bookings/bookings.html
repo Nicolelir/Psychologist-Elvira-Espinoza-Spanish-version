@@ -27,8 +27,8 @@
             <tbody>
                 {% for booking in request.user.bookings.all %}
                 <tr style="border-color: #8B4513;">
-                    <td>{{ booking.date }}</td>
-                    <td>{{ booking.time }}</td>
+                    <td>{{ booking.fecha }}</td>
+                    <td>{{ booking.hora }}</td>
                     <td>{% if request.user == booking.user %}
                         <div class="text-center">
                             <!-- edit/delete -->
@@ -36,12 +36,12 @@
                                 <div class="col">
                                     <a href="{% url 'edit_booking' booking.id %}" class="btn btn-link" style="text-decoration: none; color:burlywood;"
                                         title="Edit Booking"><img src="{% static '../static/icons/edit.png' %}"
-                                        alt="edit booking" class="icon-booking-btn"></a>
+                                        alt="editar reserva" class="icon-booking-btn"></a>
                                 </div>
                                 <div class="col">
                                     <a href="{% url 'delete_booking' booking.id %}" class="btn btn-link" style="text-decoration: none;color:burlywood;"
                                         title="Delete Booking"><img src="{% static '../static/icons/delete.png' %}"
-                                        alt="delete booking" class="icon-booking-btn"></a>
+                                        alt="eliminar reserva" class="icon-booking-btn"></a>
                                 </div>
                             </div>
                         </div>
