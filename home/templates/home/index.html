@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<!-- Main content -->
+
+<div class="image">
+    <img class="hero-image" src="{% static 'images/homepage.jpg' %}" style="width: 100%; height: auto" alt="hero-image">
+</div>
+
+<div class="container mt-3 mb-3 justify-text">
+    <br>
+    <h2 class="mb-3 text-center">Welcome!</h2>
+    <h3 class="lead mb-3 text-center">
+        My name is Elvira Espinoza Ahumada, the psychologist behind "Psicologa en Ruta".</h3> 
+    <h3 class="lead mb-3 text-center"> 
+        My objective focuses on three aspects: offering you a safe and compassionate space where you can explore your emotions and heal all your wounds,
+        providing you with support during emigration processes, and helping you overcome the loss of a child during pregnancy, an experience that I have personally faced.
+        I am here to accompany you on your path to emotional well-being and personal growth, wherever you are in the world.</h3>
+</div>
+
+<div class="container-fluid">
+    {% if not user.is_authenticated %}
+    <div class="text-center m-3 signup">
+        <a href="{% url 'services' %}" class="btn btn-outline-custom">Read more about me!</a>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Contact Form Column -->
+<div class="d-flex justify-content-center align-items-center">
+    <div class="container mt-3 mb-3 justify-text">
+        <h3 class="mb-3 text-center contact-form titles my-3">Contact me</h3>
+        <p><small>* All fields are required</small></p>
+        <form action="{% url 'home:home' %}" method="post" class="text-center w-85 mx-auto">
+            {% csrf_token %}
+          
+            <button type="submit" class="btn btn-outline-custom">Submit</button>
+        </form>
+    </div>
+</div>
+
+<!-- Contact Info Column -->
+<div class="contact-container text-center">
+    <div class="contact-info">
+        <i class="fa fa-envelope green-icon" aria-hidden="true"></i>
+        <span>eespinozaahumada@gmail.com</span>
+    </div>
+    <div class="contact-info">
+        <i class="fa fa-phone green-icon" aria-hidden="true"></i>
+        <span>+569 4 7307888</span>
+    </div>
+</div>
+
+{% endblock %}
