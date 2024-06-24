@@ -1,0 +1,1 @@
+web: gunicorn Elvira_bookings.wsgi
