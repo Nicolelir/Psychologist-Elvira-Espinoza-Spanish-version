@@ -9,11 +9,11 @@ class Contact(models.Model):
     """
     Stores a single contact form message
     """
-    name = models.CharField(max_length=200)
+    nombre = models.CharField(max_length=200)
     email = models.EmailField()
-    query = models.TextField()
-    date = models.DateField(default=datetime.now, blank=True)
-    read = models.BooleanField(default=False)
+    consulta = models.TextField()
+    fecha = models.DateField(default=datetime.now, blank=True)
+    leido = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Contact form {self.name}"
+        return f"Contact form {self.nombre}"

@@ -22,7 +22,7 @@ def home_view(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, "Your message has been sent successfully!")
+            messages.success(request, "Tu mensaje ha sido enviado con éxito!")
             return redirect('home:home')  # Redirect to the home page to clear the form
     else:
         form = ContactForm()
