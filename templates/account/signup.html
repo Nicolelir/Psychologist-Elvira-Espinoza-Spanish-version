@@ -9,11 +9,11 @@
 
 {% block content %}
 <div class="container text-center lead mb-3 title-login ">
-  <h1 class="titles mb-3">{% trans "Sign Up" %}</h1>
+  <h1 class="titles mb-3">{% trans "Registrate" %}</h1>
 
-  <p class="title-signup">{% blocktrans %}Not Sure If Therapy Is For You?
-    <p class="p-signup">Explore the Benefits of therapy, Goal setting and Reflections
-        <p class="p2-signup">Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+  <p class="title-signup">{% blocktrans %}No estás seguro si la terapia es para ti?
+    <p class="p-signup">Explora hoy los beneficios....
+        <p class="p2-signup">Ya tienes una cuenta? Enconces por favor <a href="{{ login_url }}">Inicia sesión</a>.{% endblocktrans %}</p>
 
   <form class="form p-2" id="signup_form" method="post" action="{% url 'account_signup' %}">
     {% csrf_token %}
@@ -21,7 +21,7 @@
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <button type="submit" class="btn btn-outline-custom w-25 mb-2">Sign Up</button>
+    <button type="submit" class="btn btn-outline-custom w-25 mb-2">Registrate</button>
   </form>
 </div>
 {% endblock %}

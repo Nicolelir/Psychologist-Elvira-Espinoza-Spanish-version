@@ -11,19 +11,21 @@
 
 <div class="container mt-3 mb-3 justify-text">
     <br>
-    <h2 class="mb-3 text-center">Welcome!</h2>
+    <h2 class="mb-3 text-center">Bienvenido!</h2>
     <h3 class="lead mb-3 text-center">
-        My name is Elvira Espinoza Ahumada, the psychologist behind "Psicologa en Ruta".</h3> 
+        ¡Hola! Soy Elvira Espinoza Ahumada, la psicóloga detrás de Psicóloga en Ruta.</h3> 
     <h3 class="lead mb-3 text-center"> 
-        My objective focuses on three aspects: offering you a safe and compassionate space where you can explore your emotions and heal all your wounds,
-        providing you with support during emigration processes, and helping you overcome the loss of a child during pregnancy, an experience that I have personally faced.
-        I am here to accompany you on your path to emotional well-being and personal growth, wherever you are in the world.</h3>
+        Mi objetivo se centra en tres aspectos; ofrecerte un espacio seguro y compasivo donde puedas explorar 
+        tus emociones y sanar todas tus heridas, también brindarte apoyo durante procesos de emigración y por último, 
+        superar la pérdida de un hijo durante el embarazo, una experiencia que personalmente he enfrentado. 
+        Estoy aquí para acompañarte en tu camino hacia el bienestar emocional y el crecimiento personal, estés donde estés 
+        en el mundo.</h3>
 </div>
 
 <div class="container-fluid">
     {% if not user.is_authenticated %}
     <div class="text-center m-3 signup">
-        <a href="{% url 'services' %}" class="btn btn-outline-custom">Read more about me!</a>
+        <a href="{% url 'services' %}" class="btn btn-outline-custom">Lee más acerca de mí!</a>
     </div>
     {% endif %}
 </div>
@@ -31,12 +33,12 @@
 <!-- Contact Form Column -->
 <div class="d-flex justify-content-center align-items-center">
     <div class="container mt-3 mb-3 justify-text">
-        <h3 class="mb-3 text-center contact-form titles my-3">Contact me</h3>
-        <p><small>* All fields are required</small></p>
+        <h3 class="mb-3 text-center contact-form titles my-3">Contáctame</h3>
+        <p><small>* Todos los campos son requeridos</small></p>
         <form action="{% url 'home:home' %}" method="post" class="text-center w-85 mx-auto">
             {% csrf_token %}
           
-            <button type="submit" class="btn btn-outline-custom">Submit</button>
+            <button type="submit" class="btn btn-outline-custom">Enviar</button>
         </form>
     </div>
 </div>
