@@ -1,0 +1,58 @@
+{% extends "base.html" %} 
+{% block content %} 
+{% load static %}
+
+<div class="mb-3 py-4 text-center align-items-center">
+    <h1 class="mb-3 text-center titles">About me</h1>
+</div>
+
+<div class="container mt-5 mb-5 justify-text">
+    <div class="row">
+        <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+            <img src="{% static 'images/profile.jpeg' %}" class="profile-image" alt="profile-image">
+        </div>
+        <div class="col-12 col-md-8">
+            <h2 class="mb-3">My Mission</h2>
+            <p class="mb-3">My mission at Psicología en Ruta is to provide you with a welcoming space where you feel comfortable to share your emotions and concerns. 
+                I am committed to accompanying you on your journey toward emotional well-being and self-discovery, 
+                offering you personalized guidance and support every step of the way.</p>
+            <h2 class="mb-3">My Vision</h2>
+            <p>I aspire to create a world where all people, regardless of their geographic location,
+                have access to quality emotional and spiritual support that allows them to live full and meaningful lives. 
+                I want to be a trusted guide on the path to emotional well-being, providing personalized and effective services 
+                that promote mental health and personal growth at all stages of life</p>
+        </div>
+    </div>
+</div>
+
+<div class="mb-3 text-center align-items-center">
+    <h1 class="mb-3 text-center titles">Services</h1>
+</div>
+
+<div class="container d-flex flex-row flex-wrap justify-content-center justify-text mb-5">
+    {% for service in services %} 
+    <div class="card m-3">
+        <div> 
+            <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.title }}">
+           
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">{{ service.title|safe }}</h2>
+            <div class="card-text">{{ service.description|safe }}</div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="services-container text-center">
+    <div>
+        {% if user.is_authenticated %}
+            <h3>Dreams are bigger than fears!</h3>
+            <p class="text-center m-3 signup"><a href="{% url 'booking_add' %}" class="btn btn-outline-custom w-35 mx-auto mb-4">Book your appointment here!</a></p>
+        {% else %}
+        <p class="text-center m-3 signup"><a href="{% url 'account_login' %}" class="btn btn-outline-custom w-50 mx-auto mb-4">To book an appointment with me please sign in here!</a></p>
+            
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

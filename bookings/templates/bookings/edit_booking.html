@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Edit a Booking{% endblock %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+<div class="text-center">
+    <h1 class="text-center my-3 mx-auto titles">Edit Booking</h1>
+    <form method="post" class="text-center w-75 mx-auto booking-section">
+        {% csrf_token %}
+        <div class="row mx-auto">
+      
+            <div class="col m-4">
+                <h4 class="text-center mb-3">Your Details</h4>
+                {{ form.first_name|as_crispy_field|safe }}
+                {{ form.last_name|as_crispy_field|safe }}
+                {{ form.email|as_crispy_field|safe }}
+                {{ form.service|as_crispy_field|safe }}
+                
+            </div>
+            <div class="col m-4">
+                <h4 class="text-center mb-3">Choose Date & Time</h4>
+                {{ form.date|as_crispy_field|safe }}
+                {{ form.time|as_crispy_field|safe }}
+            </div>
+            </div>
+       
+        <button type="submit" class="btn btn-outline-custom w-25 mx-auto mb-4">Save</button>
+    </form>
+</div>
+
+<div class="d-flex justify-content-center align-items-center">
+    <a href="{% url 'bookings' %}" class="btn-container">
+        <div class="icon-container">
+            <img src="{% static 'icons/booking.png' %}" alt="Your appointments" class="icon-review-btn booking-icon">
+        </div>
+        <span class="button-text">Your Appointments</span>
+    </a>
+</div>
+    
+
+{% endblock %}
