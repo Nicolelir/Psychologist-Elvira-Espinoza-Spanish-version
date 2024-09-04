@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from blog import views as blog_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,7 +24,7 @@ urlpatterns = [
     path("services/", include("services.urls")),
     path('bookings/', include('bookings.urls')),
     path("reviews/", include("reviews.urls")),
-    path("blog/", blog_views.my_blog, name='blog'),
+    path("blog/", include("blog.urls")),
     path('accounts/', include('allauth.urls')),
     path('djrichtextfield/', include('djrichtextfield.urls')),
 ]
