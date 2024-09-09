@@ -274,7 +274,7 @@ p.booking {
     vertical-align: middle;
 }
 
-/*/// Reviewss Page ///*/
+/*/// Reviews Page ///*/
 .card-rev {
     width: 18rem;
     height: 100%;
@@ -372,6 +372,10 @@ content: "\2606";
     border: 2px solid var(--green) ;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); 
 }
+
+/*/// Blog Page ///*/
+
+
 
  /* Log in */
  .title-login{

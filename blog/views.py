@@ -21,15 +21,17 @@ def post_detail(request, slug):
         An instance of :model:`blog.Post`.
 
     **Template:**
-    :template:`blog/post_detail.html`
+    :template:`blog/post_list.html`
     """
     # Assuming 'status=1' filters published posts only
     post = get_object_or_404(Post.objects.filter(status=1), slug=slug)
 
     return render(
         request,
-        "blog/post_detail.html",
+        "blog/post_list.html",
         {
             "post": post,
         },
     )
+
+    
