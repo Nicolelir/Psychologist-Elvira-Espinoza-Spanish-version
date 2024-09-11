@@ -21,17 +21,20 @@ def post_detail(request, slug):
         An instance of :model:`blog.Post`.
 
     **Template:**
-    :template:`blog/post_list.html`
+    :template:`blog/post_detail.html`
     """
     # Assuming 'status=1' filters published posts only
-    post = get_object_or_404(Post.objects.filter(status=1), slug=slug)
+    queryset = Post.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
 
     return render(
         request,
-        "blog/post_list.html",
+        "blog/post_detail.html",
         {
             "post": post,
         },
     )
 
+   
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
     
