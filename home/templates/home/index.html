@@ -9,17 +9,17 @@
     <img class="hero-image" src="{% static 'images/homepage.jpg' %}" style="width: 100%; height: auto" alt="hero-image">
 </div>
 
-<div class="container mt-3 mb-3 justify-text">
-    <br>
-    <h2 class="mb-3 text-center">Bienvenido!</h2>
-    <h3 class="lead mb-3 text-center">
-        ¡Hola! Soy Elvira Espinoza Ahumada, la psicóloga detrás de Psicóloga en Ruta.</h3> 
-    <h3 class="lead mb-3 text-center"> 
+<div class="container mt-3 mb-3 justify-text text-center">
+    <h2 class="mb-3 text-center titles">Bienvenido!</h2>
+    <p class="lead mb-3 justify-text">
+        <br>
+        ¡Hola! Soy Elvira Espinoza Ahumada, la psicóloga detrás de Psicóloga en Ruta.</p> 
+    <p class="lead mb-3 justify-text"> 
         Mi objetivo se centra en tres aspectos; ofrecerte un espacio seguro y compasivo donde puedas explorar 
         tus emociones y sanar todas tus heridas, también brindarte apoyo durante procesos de emigración y por último, 
         superar la pérdida de un hijo durante el embarazo, una experiencia que personalmente he enfrentado. 
         Estoy aquí para acompañarte en tu camino hacia el bienestar emocional y el crecimiento personal, estés donde estés 
-        en el mundo.</h3>
+        en el mundo.</p>
 </div>
 
 <div class="container-fluid">
@@ -32,9 +32,9 @@
 
 <!-- Contact Form Column -->
 <div class="d-flex justify-content-center align-items-center">
-    <div class="container mt-3 mb-3 justify-text">
+    <div class="container  justify-text text-center">
         <h3 class="mb-3 text-center contact-form titles my-3">Contáctame</h3>
-        <p><small>* Todos los campos son requeridos</small></p>
+        <p class="text-center"><small>* Todos los campos son requeridos</small></p>
         <form action="{% url 'home:home' %}" method="post" class="text-center w-85 mx-auto">
             {% csrf_token %}
             {{ form|crispy|safe }}

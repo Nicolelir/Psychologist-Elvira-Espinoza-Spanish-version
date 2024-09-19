@@ -33,7 +33,7 @@ body {
     padding-top: 60px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
     font-family: var(--title);
     font-weight: 500;
     color: var(--grey);
@@ -46,6 +46,8 @@ main {
 
 .justify-text {
     text-align: justify;
+    margin-top: 0; /* No space above text */
+    margin-bottom: 15px; /* Consistent spacing between paragraphs */
 }
 
 .titles{
@@ -55,8 +57,20 @@ main {
     display: inline-block;
     border-bottom: 3px solid var(--green);
     line-height: 3rem;
-    padding-top: 30px; 
+    padding-top: 20px;
+    margin-bottom: 10px; /* Reduce the space after titles */
 }
+
+.lead {
+    font-family: var(--main-font);
+    font-size: 1.2rem; /* Adjust the font size */
+    font-weight: 400;
+    margin-top: 0; /* Remove extra margin at the top */
+    margin-bottom: 15px; /* Adjust bottom margin */
+}
+
+
+  
 
 /* Django messages */
 .custom-alert {
@@ -197,6 +211,11 @@ img.logo {
     display: block;
     width: 100%;
     height: auto;
+}
+
+.contact-form {
+    margin-top: 20px; /* Adjust margin-top for the form title */
+    margin-bottom: 10px; /* Reduce margin-bottom after the title */
 }
 
 /* Contact Form */
@@ -448,6 +467,13 @@ content: "\2606";
     }
 }
 
+
+@media (max-width: 768px) {
+    .lead {
+        font-size: 1rem; /* Slightly smaller on mobile screens */
+    }
+}
+
 /*Footer*/
 /* Media query for screens smaller than 768px (adjust the breakpoint as needed) */
 @media screen and (max-width: 768px) {
@@ -459,3 +485,4 @@ content: "\2606";
         margin-bottom: 10px;
     }
 }
+
