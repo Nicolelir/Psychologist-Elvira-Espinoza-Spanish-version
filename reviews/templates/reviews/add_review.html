@@ -4,23 +4,25 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="text-center">
-    <h1 class="text-center mx-auto titles my-3" id="review">Deja una Reseña</h1>
-    <p class=" post lead mb-3 text-center">Dejar una reseña de su experiencia podría ayudar a otros 
-                                              a ver dónde podría ayudarles la terapia.</p>
+    <h1 class="text-center mx-auto titles my-3" id="review">Deja una reseña</h1>
+    <p class=" post lead mb-3 text-center">Compartir su experiencia con la psicóloga Elvira, ya sea sobre su empatía, profesionalismo o métodos terapéuticos, podría guiar a otros a tomar la decisión de buscar ayuda</p>
     <p><small>* Todos los campos son requeridos</small></p>
     <form method="post" class="text-center w-75 mx-auto booking-section">
         {% csrf_token %}
         <div class="row">
             <div class="col m-4 mb-5">
                 <h4 class="text-center mb-3">Details</h4>
-                    {{ form.booking|as_crispy_field|safe }}
-                    {{ form.service|as_crispy_field|safe }}
-                    {{ form.created_on|as_crispy_field|safe}}
-                    {{ form.rating|as_crispy_field|safe}}
-                    {{ form.text |as_crispy_field|safe}}
+                    {{ form.fecha_de_la_sesión|as_crispy_field|safe }}
+                    {{ form.servicio|as_crispy_field|safe }}
+                    {{ form.clasificación|as_crispy_field|safe}}
+                    {{ form.texto |as_crispy_field|safe}}
                 </div>
             </div>
         <button type="submit" class="btn btn-outline-custom d-block w-25 mx-auto mb-4">Enviar</button>
     </form>
 </div>
+
+
+
+
 {% endblock %}

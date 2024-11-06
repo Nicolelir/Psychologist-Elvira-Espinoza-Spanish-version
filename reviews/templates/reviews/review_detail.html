@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}ReviewDetail - {{ review.author }}{% endblock %}
+{% block title %}ReviewDetail - {{ review.autor }}{% endblock %}
 
 {% block content %} 
 
@@ -8,11 +8,11 @@
         <div class="review-info mt-3 p-1">
            
             <div class="review-detail">
-                <h1 class="card-author text-center">{{ review.author }}</h1>
+                <h1 class="card-author text-center">{{ review.autor }}</h1>
                 <hr style="border-color: #8B4513">
-                <p class="card-created-on text-center">{{ review.created_on }}</p>
-                <p class="card-service text-center"><strong>Service: {{ review.service }}</strong></p>
-                <p class="card-content text-center">{{ review.text }}</p>
+                <p class="card-created-on text-center">{{ review.creado_el }}</p>
+                <p class="card-service text-center"><strong>Servicio: {{ review.servicio }}</strong></p>
+                <p class="card-content text-center">{{ review.texto }}</p>
                 <hr style="border-color: #8B4513">
             </div>
         </div>
@@ -21,5 +21,5 @@
 
 
   
-    <p class="text-center m-3 signup"><a href="{% url 'reviews' %}" class="btn btn-outline-custom w-35 mx-auto mb-4">Back to Reviews</a></p>
+    <p class="text-center m-3 signup"><a href="{% url 'reviews' %}" class="btn btn-outline-custom w-35 mx-auto mb-4">Vuelve a las reseñas</a></p>
 {% endblock %}

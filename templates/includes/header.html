@@ -39,7 +39,7 @@
             </a>
             <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
               <a class="dropdown-item {% if url_name == 'bookings' %}active{% endif %}" href="{% url 'bookings' %}">Mis reservas</a>
-              <a class="dropdown-item {% if url_name == 'review_add' %}active{% endif %}" href="{% url 'review_add' %}">Agrega una reseña</a>
+              <a class="dropdown-item {% if url_name == 'review_add' %}active{% endif %}" href="{% url 'review_add'  %}">Agrega una reseña</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{% url 'account_logout' %}">Cerrar sesión</a>
             </div>

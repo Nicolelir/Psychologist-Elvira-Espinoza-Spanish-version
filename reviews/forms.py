@@ -9,19 +9,18 @@ class ReviewForm(forms.ModelForm):
 
 
         if user:
-            self.fields['booking'].queryset = Booking.objects.filter(user=user)
+            self.fields['fecha_de_la_sesión'].queryset = Booking.objects.filter(user=user)
             
     
         # Exclude author field manually
-        self.fields.pop('author', None)
+        self.fields.pop('autor', None)
 
     def clean_author(self):
-        author = self.cleaned_data.get('author')
+        author = self.cleaned_data.get('autor')
         if not author:
-            raise forms.ValidationError("Author field is required.")
+            raise forms.ValidationError("Autor es requerido.")
         return author
 
     class Meta:
         model = Review
-        fields = ['created_on', 'booking', 'service', 'rating', 'text']
-        
+        fields = ['fecha_de_la_sesión', 'servicio', 'clasificación', 'texto']
