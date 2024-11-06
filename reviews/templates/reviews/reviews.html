@@ -30,9 +30,6 @@
                     <div class="card m-3" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-author">{{ review.autor }}</h5>
-                            <p class="card-created-on">{{ review.creado_el }}</p>
-                            <p class="card-service"><strong>Servicio:</strong> {{ review.servicio }}</p>
-                            <p class="card-content">{{ review.texto|slice:":100" }}{% if review.texto|length > 100 %} <a href="{% url 'review_detail' pk=review.pk %}" class="review_detail" aria-label="Click to see more about {{ review.author }}"> ver más</a>{% endif %}</p>
                             <div class="rating bordered-star">
                                 {% if review.clasificación == 1 %}
                                 <span>&#x2605;</span>
@@ -42,6 +39,10 @@
                                 {% endfor %}
                                 {% endif %}
                             </div>
+                            <p class="card-created-on mb-0"><small>{{ review.creado_el|date:"d/m/Y H:i" }}</small></p>
+                            <p class="card-service mb-2"><small>Servicio: {{ review.servicio }}</small></p>
+                            <p class="card-content">{{ review.texto|slice:":100" }}{% if review.texto|length > 100 %} <a href="{% url 'review_detail' pk=review.pk %}" class="review_detail" aria-label="Click to see more about {{ review.author }}"> ver más</a>{% endif %}</p>
+                           
                         </div>
                     </div>
                     {% endfor %}

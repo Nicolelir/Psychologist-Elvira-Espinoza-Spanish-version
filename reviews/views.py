@@ -78,10 +78,6 @@ class ReviewList(generic.ListView):
     template_name = 'reviews/reviews.html'
     paginate_by = 6
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['reviews'] = context['object_list']  
-        return context
 
 class ReviewDetail(DetailView):
     """View a single review"""

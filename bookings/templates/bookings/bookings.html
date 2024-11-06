@@ -21,13 +21,13 @@
                 <tr style="border-color:#8B4513;">
                     <th>Día</th>
                     <th>Hora</th>
-                    <th>Editar/Eliminar</th>
+                    <th>Editar / Eliminar</th>
                 </tr>
             </thead>
             <tbody>
                 {% for booking in request.user.bookings.all %}
                 <tr style="border-color: #8B4513;">
-                    <td>{{ booking.fecha }}</td>
+                    <td>{{ booking.fecha|date:"d/m/Y" }}</td>
                     <td>{{ booking.hora }}</td>
                     <td>{% if request.user == booking.user %}
                         <div class="text-center">
