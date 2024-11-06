@@ -22,6 +22,46 @@ class BookingForm(forms.ModelForm):
         self.fields['servicio'].label = "Servicio"
         self.fields['fecha'].widget = forms.DateInput(attrs={'type': 'date'})
 
+      # Restrict fecha to future dates
+        self.fields['fecha'].widget = forms.DateInput(attrs={'type': 'date', 'min': datetime.now().date()})
+        
+        # Dynamically limit hora choices if fecha is selected
+        self.fields['hora'].choices = self.get_available_time_slots()
+
+    def get_available_time_slots(self):
+        """
+        Returns a list of available time slots based on the selected date.
+        """
+        fecha = self.data.get('fecha')  # Retrieve selected fecha from form data
+        if not fecha:
+            # Default to all slots if no date is selected yet
+            return [
+                ('09:00 - 10:00', '09:00 - 10:00'),
+                ('10:00 - 11:00', '10:00 - 11:00'),
+                ('11:00 - 12:00', '11:00 - 12:00'),
+                ('12:00 - 13:00', '12:00 - 13:00'),
+                ('14:00 - 15:00', '14:00 - 15:00'),
+                ('15:00 - 16:00', '15:00 - 16:00'),
+                ('16:00 - 17:00', '16:00 - 17:00'),
+                ('17:00 - 18:00', '17:00 - 18:00')
+            ]
+        
+        # Parse fecha and filter existing bookings
+        selected_date = datetime.strptime(fecha, '%Y-%m-%d').date()
+        booked_slots = Booking.objects.filter(fecha=selected_date).values_list('hora', flat=True)
+        
+        # Define all possible time slots
+        all_time_slots = [
+            '09:00 - 10:00', '10:00 - 11:00', '11:00 - 12:00',
+            '12:00 - 13:00', '14:00 - 15:00',
+            '15:00 - 16:00', '16:00 - 17:00', '17:00 - 18:00'
+        ]
+        
+        # Filter out booked slots
+        available_slots = [(slot, slot) for slot in all_time_slots if slot not in booked_slots]
+        
+        return available_slots
+
     def clean(self):
         cleaned_data = super().clean()
         fecha = cleaned_data.get('fecha')
