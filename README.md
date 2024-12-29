@@ -1,131 +1,101 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# <p style="text-align: center;">Elvira Espinoza Ahumada</p>
 
-Welcome Nicole Rojas,
+[Click aquí para ver la versión en vivo](https://elvira-espinoza-spanish-v-fe945efbedfa.herokuapp.com/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![logo](Documentacion/caracteristicas/logo3.png)
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
 
-## Gitpod Reminders
+This is a Spanish version of one of my projects. As the request of my client, some changes have been incorporated and new elements have been added in this version. You can review the original version in English here [Link to the english version](https://elvira-espinoza-50ffaf8a32fa.herokuapp.com/)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+----------------------------------------------------------------------------------------------------------------------------
 
-`python3 -m http.server`
+## Índice - Tabla de contenido
 
-A blue button should appear to click: _Make Public_,
+- [Experiencia de usuario (UX)](#experiencia-usuario-ux)
+- [Diseño](#diseño)
+- [Tecnologías utilizadas](#tecnologías-usadas)
+- [Características](#características)
+- [Pruebas](#pruebas)
+- [Implementación](#implementación)
+- [Créditos](#créditos)
 
-Another blue button should appear to click: _Open Browser_.
+# Experiencia de usuario (UX)
+El objetivo de este sitio web es crear una plataforma fácil de usar donde los usuarios puedan obtener información sobre Elvira, sus especialidades, enfoques de tratamiento y detalles de contacto. Esto ayuda a los clientes potenciales a comprender la experiencia del terapeuta y decidir si es la persona adecuada para ellos. Al mismo tiempo, el sitio sirve como herramienta de marketing para atraer nuevos clientes gracias a las reseñas que los usuarios pueden publicar, demostrando la experiencia del terapeuta y destacando sus historias de éxito.
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+## Objetivos del proyecto
 
-A blue button should appear to click: _Make Public_,
+## Metodología ágil
+Este proyecto se creó utilizando principios ágiles a través de un tablero de proyecto en Github, donde pude seleccionar qué funciones aún estaban por hacer, qué funciones estaban en progreso mientras se trabajaba en ellas y qué funciones cumplían con la definición de terminado. Se agregaron etiquetas para ordenar los problemas según su importancia.
+En cuanto a las historias de usuario, las creé en base a una plantilla, que actuó como esqueleto para crear nuevas historias de usuario. Cada historia de usuario seguiría la convención:
 
-Another blue button should appear to click: _Open Browser_.
+**Como (rol) yo puedo (capacidad) para que (beneficio_recibido)**
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+con sus respectivos "Criterios de aceptación" que deberían cumplirse para que el problema de la Historia de usuario se marque como Listo. Los criterios de aceptación fueron muy útiles para garantizar que se completaran todas las tareas necesarias, ayudándome a organizar y priorizar mi flujo de trabajo. Esto ha sido esencial debido al tiempo muy limitado que teníamos para completar este proyecto.
 
-To log into the Heroku toolbelt CLI:
+## Priorización de Moscú
+Seguí el método de priorización de MoSCoW para este proyecto, con las siguientes etiquetas:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+Debe contener: los componentes críticos 'requeridos' del proyecto. 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+Debería tener: los componentes que son valiosos para el proyecto pero que no son absolutamente "vitales" en la etapa MVP. Los "debe contener" deben recibir prioridad sobre los "debería contener".
 
-### Connecting your Mongo database
+Podría tener: estas son las características que son una 'bonificación' para el proyecto, sería bueno tenerlas en esta fase, pero solo si las tareas más importantes se han completado primero y el tiempo lo permite.
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+![img](documentación/características/tablero.PNG)
 
-------
+## Historias de usuarios 
 
-## Release History
+### Épicas
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- Registro de usuario e inicio de sesión.
+- Página de inicio (formulario de contacto)
+- Servicios 
+- Reservar citas, editarlas y eliminarlas.
+- Publicar una reseña 
+- Panel de administración 
+- Mantener un diseño consistente teniendo en cuenta la capacidad de respuesta.ç
 
-**June 18, 2024,** Add Mongo back into template
+| Historia de usuario| Prioridad |
+|---------------------------------------------------------------------------------------------------------------------------------|-------------|
+|  #1 |Como **Usuario** puedo **hacer clic en el enlace Acerca de/servicios** para poder **leer sobre el especialista y los servicios ofrecidos**|**DEBE TENER**|
+|  #2 |Como **visitante del sitio web del psicólogo** quiero **navegar fácilmente en la página** para **que pueda tener una idea clara sobre el contenido y el sistema de reservas**|**DEBE TENER**|
+|  #3 |Como **Administrador** puedo **actualizar el contenido de la página Acerca de** para que **está disponible en el sitio**|**PODRÍA TENER**|
+|  #4 |Como **usuario nuevo** quiero **crear una nueva cuenta** para que **pueda facilitar futuras reservas y dejar una reseña**|**DEBE TENER**|
+|  #5 |Como **usuario registrado** quiero **iniciar sesión con mis credenciales** para **poder acceder a mi cuenta.**|**DEBE TENER**|
+|  #6 |Como **usuario** quiero **ver la disponibilidad del psicólogo** para **poder elegir y reservar un horario conveniente**|**DEBE TENER**|
+|  #7 |Como **usuario** quiero **ver mi lista de reservas** para **poder reprogramar una cita**|**DEBE TENER**|
+|  #8 |Como **usuario** quiero **ver mi lista de reservas** para **poder eliminar una cita**|**DEBE TENER**|
+|  #9 |Como **usuario** puedo **completar un formulario de contacto** para **poder enviar una solicitud para el especialista**|**DEBE TENER**|
+|  #10 |Como **usuario del sitio** puedo **ver una lista paginada de reseñas** para **poder seleccionar qué reseña quiero ver**|**DEBE TENER**|
+|  #11 |Como **usuario** puedo **crear reseñas** para que **otros usuarios puedan leer sobre mi experiencia con el especialista**|**DEBE TENER**|
+|  #12 |Como usuario puedo **hacer clic en una reseña** para poder leer el texto completo si es un texto muy largo**|**PODRÍA TENER**|
+|  #13 |Como **Administrador del sitio que utiliza el sistema de reservas**, quiero **tener un panel de control** para **poder administrar mi disponibilidad, ver las próximas citas y bloquear franjas horarias.**||**PODRÍA TENER**|
+|  #14 |Como **administrador del sitio** puedo **aprobar o eliminar reseñas** para **poder filtrar reseñas objetables y administrar el contenido de mi sitio web**||**DEBE TENER**|
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+# Diseño
 
-**May 28 2024:** Fix Mongo and Links installs
+## Esquema de colores
 
-**April 26 2024:** Update node version to 16
+Los colores fueron seleccionados con la intención de complementar los colores del logo, en una mezcla de verde y marrón. El logo fue proporcionado por Elvira y el color tiene un significado especial para ella, así que intenté mantener la paleta de colores que ella quería, pero también considerando visibilidad y contrastes para una mejor experiencia de usuario.
 
-**September 20 2023:** Update Python version to 3.9.17.
+## Estructuras (wireframes)
+Fueron creados usando Balsamiq. Las secciones siguientes muestran los marcos estructurales individuales para diferentes dispositivos:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- Página de inicio
+La página de inicio tiene una imagen principal, una sección de bienvenida y un formulario de contacto, debajo del formulario de contacto hay un botón "¡Lea más sobre mí!" que va directamente a la página de Servicios. 
+<detalles>
+<summary>Haga clic para ver los wireframes de la página de inicio</summary>
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+![img]()
+</detalles>
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+- Acerca de/Servicios
+Esta página tiene 2 secciones, una sección "Acerca de mí" donde los usuarios pueden leer sobre la misión y visión de Elvira. 
+La segunda sección tiene una lista de los servicios prestados al especialista y en la parte inferior de la página hay un botón en el que los usuarios pueden hacer clic si deciden seguir adelante reservando una cita. Para acceder a la página de reservas, los usuarios deben iniciar sesión o registrarse primero. 
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+<detalles>
+<summary>Haga clic para ver los wireframes de la página de servicios</summary>
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+![img]()
+</detalles>
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
