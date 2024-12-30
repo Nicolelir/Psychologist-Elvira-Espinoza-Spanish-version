@@ -424,7 +424,8 @@ content: "\2606";
 }
 
 .masthead-text {
-    color: black;
+    background-color: #445261;
+    color: white;
     position: relative;
 }
 
@@ -440,6 +441,7 @@ content: "\2606";
     right: 90%;
     height: 100%;
     width: 150%;
+    background: #445261;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
@@ -453,9 +455,17 @@ content: "\2606";
 
 .post-subtitle {
     margin-left: 5%;
-    color: black;
+    color: lightgray;
 }
 
+.card-blog {
+    border: none;
+    background-color: transparent;
+}
+
+.image-container-blog {
+    position: relative;
+}
  /* Log in */
  .title-login{
     font-family: var(--title);
