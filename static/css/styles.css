@@ -448,6 +448,16 @@ content: "\2606";
     z-index: 100;
 }
 
+.post-link {
+    text-decoration: none;
+    color: #445261;
+}
+
+.post-link:hover,
+.page-link {
+    color: #E84610;
+}
+
 .post-title {
     margin-top: 10%;
     margin-left: 5%;
@@ -458,7 +468,13 @@ content: "\2606";
     color: lightgray;
 }
 
+
 .card-blog {
+    border: none;
+    background-color: transparent;
+}
+
+.card1 {
     border: none;
     background-color: transparent;
 }

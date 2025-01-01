@@ -27,12 +27,16 @@
 <!-- Post Content Section -->
 <div class="container">
     <div class="row">
-                <article class="blog-text">
+        <div class="col card  mb-4  mt-3 left  top">
+            <div class="card-body-blog">
+                <!-- The post content goes inside the card-text. -->
+                <!-- Use the | safe filter inside the template tags -->
+                <article class="card-text-blog">
                     {{ post.content | safe }}
                 </article>
             </div>
         </div>
-    
+    </div>
 
     <p class="text-center m-3 signup"><a href="{% url 'blog' %}" class="btn btn-outline-custom w-35 mx-auto mb-4">Vuelve al Blog</a></p>
 {% endblock %}
