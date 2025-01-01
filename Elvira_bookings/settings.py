@@ -30,8 +30,8 @@ SECRET_KEY = 'django-insecure-7j9g2q0gc8@jx5%eofg(zd7*tib-(^o=^68=orhhj-yn+6n+g=
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com', '8000-nicolelir-psychologiste-ila9i852vqt.ws.codeinstitute-ide.net' ]
-CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io', 'https://*.herokuapp.com', 'https://8000-nicolelir-psychologiste-ila9i852vqt.ws.codeinstitute-ide.net'] 
+ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com', '8000-nicolelir-psychologiste-ky6w2xywquz.ws.codeinstitute-ide.net' ]
+CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io', 'https://*.herokuapp.com', 'https://8000-nicolelir-psychologiste-ky6w2xywquz.ws.codeinstitute-ide.net'] 
 
 
 

@@ -70,14 +70,14 @@ class AddReview(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         kwargs['user'] = self.request.user 
         return kwargs
 
-class ReviewList(generic.ListView):
+class ReviewPage(ListView):
     """
-    A model to view the review cards, no more than 6 to a page
+    A view to display a paginated list of reviews.
     """
     model = Review
     template_name = 'reviews/reviews.html'
-    paginate_by = 6
-
+    context_object_name = 'reviews'
+    paginate_by = 6 
 
 class ReviewDetail(DetailView):
     """View a single review"""
@@ -85,3 +85,6 @@ class ReviewDetail(DetailView):
     template_name = "reviews/review_detail.html"
     model = Review
     context_object_name = "review"
+
+
+   
