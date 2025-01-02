@@ -234,6 +234,11 @@ css que se utilizan en todas las páginas del proyecto.
 
 ![img](Documentacion/caracteristicas/hero%20image.PNG)
 
+- Mas abajo hay un breve párrafo de bienvenida al usuario, con un botón de  "Lee más acerca de mi!" que lleva directamente a la página de servicios. Este botón sólo es visible cuando ningún usuario ha iniciado sesión. 
+
+![img](Documentacion/caracteristicas/welcome.PNG)
+
+
 ## Formulario de contacto
 - 
 
@@ -259,11 +264,11 @@ css que se utilizan en todas las páginas del proyecto.
 
 ## Acerca de la sección 
 
-![img](Documentacion/caracteristicas/)
+![img](Documentacion/caracteristicas/about.PNG)
 
 ## Sección de servicios 
 
-![img]()
+![img](Documentacion/caracteristicas/servicios.PNG)
 
 ## Reserva y cita 
 
@@ -276,7 +281,7 @@ css que se utilizan en todas las páginas del proyecto.
 - Si una combinación de fecha y hora no está disponible, se informa al usuario mediante un mensaje de advertencia. 
 - Los comentarios de los usuarios se envían por mensaje una vez que se ha enviado y actualizado una reserva, el mensaje desaparece después de 5 segundos.
 
-![img]()
+![img](Documentacion/caracteristicas/booking.PNG)
 
 ## Lista de citas de usuarios
 - Panel de control solo visible para usuarios registrados que hayan realizado una reserva anterior
@@ -291,19 +296,25 @@ css que se utilizan en todas las páginas del proyecto.
 - Un mensaje aparecerá en la parte superior de la pantalla cada vez que el usuario reserve una hora, la modifique o la elimine. 
 
 ## Lista de las últimas reseñas
-- La página Reseñas muestra todas las reseñas publicadas por diferentes usuarios y se muestran en orden de la más nueva a la más antigua.
-- Cada tarjeta de revisión mostrará el nombre del autor, la fecha de publicación, el servicio reservado, una sección del cuerpo para los comentarios y una escala de calificación del 1 al 5 representada por estrellas.
+- En esta página se mostrarán todas las reseñas publicadas por diferentes usuarios, en orden de la más nueva a la más antigua.
+- Si no hay reseñas aparecerá un mensaje "No hay reseñas" y un botón para volver a la página principal. 
 
-![img]()
+![img](Documentacion/caracteristicas/reviews0.PNG)
 
-- Si la sección del cuerpo de los comentarios supera una determinada cantidad de caracteres, los usuarios verán un hipervínculo "ver más" que les permitirá mostrar el contenido completo en una nueva ventana, favoreciendo una mejor visualización del contenido.
+- Cada recuadro mostrará el nombre del autor, la fecha de publicación, el servicio reservado, una sección del cuerpo para los comentarios y una escala de calificación del 1 al 5 representada por estrellas.
 
-![img]()
+- Esta sección se diseñó para no mostrar más de 6 reseñas por página, por lo que cuenta con una barra de paginación, para cuando se excede las 6 reseñas.
+
+![img](Documentacion/caracteristicas/reviews.PNG)
+
+- Si la sección del cuerpo de los comentarios supera una determinada cantidad de caracteres, los usuarios verán un hipervínculo "ver más" que les permitirá mostrar el contenido completo en una nueva ventana, favoreciendo una mejor visualización del contenido junto con un botón para volver a la página de reseñas.
+
+![img](Documentacion/caracteristicas/reviews.detail.PNG)
 
 ## Agregar una reseña
 Esta página contiene un formulario con detalles de: fecha de reserva, servicio, fecha, calificación y un comentario. Todos los campos son solicitados para enviar el formulario.
 
-![img]()
+![img](Documentacion/caracteristicas/review.post.PNG)
 
 ## Cerrar sesión
 ![img](Documentacion/caracteristicas/logout.PNG)

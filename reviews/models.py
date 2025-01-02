@@ -21,3 +21,12 @@ class Review(models.Model):
 
     def __str__(self):
         return f"Review by {self.autor.username} on {self.creado_el}"
+
+     # Methods to calculate full and empty stars
+    def full_stars(self):
+        """Returns a range object representing filled stars."""
+        return range(self.clasificación)
+
+    def empty_stars(self):
+        """Returns a range object representing unfilled stars."""
+        return range(5 - self.clasificación)   
