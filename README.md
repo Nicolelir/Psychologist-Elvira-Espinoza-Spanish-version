@@ -214,36 +214,36 @@ css que se utilizan en todas las páginas del proyecto.
 ## Menú de navegación 
 - La barra de navegación aparece en cada página para que los usuarios puedan navegar fácilmente por el sitio y también es fija, por lo que los usuarios no necesitan volver a la parte superior de la página si desean pasar a una página diferente.
 
-- Cuando el usuario no haya iniciado sesión, la barra de navegación mostrará enlaces para '¡ELVI tu psicóloga!' (Página de inicio), 'Servicios', 'Reseñas' e 'Iniciar sesión/Registrarse'
+- Cuando el usuario no haya iniciado sesión, la barra de navegación mostrará enlaces para 'ELVI Psicóloga en Ruta' (Página de inicio), 'Servicios', 'Reseñas', 'Blog' e 'Iniciar sesión/Registrarse'
 
-![img]()
+![img](Documentacion/caracteristicas/nav.bar.PNG)
 
-- Si el usuario ha iniciado sesión, el lado izquierdo del menú mostrará enlaces a páginas que solo los usuarios autorizados pueden visitar y usar, son: 'Reservar una cita' y un menú desplegable cuando el nombre de usuario y los enlaces para 'Su Reservas", "Añadir una reseña" y "Cerrar sesión". De lo contrario, el usuario tendrá la opción de 'Registrarse' o 'Iniciar sesión'
+- Si el usuario ha iniciado sesión, el lado izquierdo del menú mostrará enlaces a páginas que solo los usuarios autorizados pueden visitar y usar, son: 'Reservar una hora' y un menú desplegable cuando el nombre de usuario y los enlaces para 'Mis Reservas", "Agregar una reseña" y "Cerrar sesión". De lo contrario, el usuario tendrá la opción de 'Registrarse' o 'Iniciar sesión'
 
-![img]()
+![img](Documentacion/caracteristicas/nav.bar.login.PNG)
 
-![img]()
+![img](Documentacion/caracteristicas/nav.bar.desplegable.PNG)
 
 - La barra de navegación responde completamente y se colapsa en un menú de hamburguesas para pantallas de tamaño mediano y pequeño.
 
-![img]()
+![img](Documentacion/caracteristicas/nav.bar.burger.PNG)
 
 ## Imagen página de inicio
 
 -La imagen principal muestra una imagen grande de Elvira, que fue elegida por ella, y que representa el estilo de psicología que practica, en un ambiente de confianza y relajación. 
 
-![img]()
+![img](Documentacion/caracteristicas/hero%20image.PNG)
 
 ## Formulario de contacto
 - 
 
-![img]()
+![img](Documentacion/caracteristicas/contact.form.PNG)
 
 ## Pie de página
 - Al igual que la barra de navegación, el pie de página aparece en cada página y proporciona enlaces a las respectivas páginas de redes sociales.
 - Los enlaces se abren en una nueva pestaña.
 
-![img]()
+![img](Documentacion/caracteristicas/footer.PNG)
 
 ## Página de inicio de sesión y registro
 
@@ -251,15 +251,15 @@ css que se utilizan en todas las páginas del proyecto.
 
 - También se rediseñó la página "Olvidé mi contraseña" a partir de las plantillas AllAuth, pero su funcionalidad completa aún no está activada para esta versión.
 
-![img]()
+![img](Documentacion/caracteristicas/signup.PNG)
 
 ## Página de inicio de sesión
 
-![img]()
+![img](Documentacion/caracteristicas/login.PNG)
 
 ## Acerca de la sección 
 
-![img]()
+![img](Documentacion/caracteristicas/)
 
 ## Sección de servicios 
 
@@ -280,16 +280,15 @@ css que se utilizan en todas las páginas del proyecto.
 
 ## Lista de citas de usuarios
 - Panel de control solo visible para usuarios registrados que hayan realizado una reserva anterior
-- Debajo de la lista de citas el usuario encontrará un ícono para publicar una reseña (al lado del ícono también es posible ver un párrafo que indica "publicar una reseña" para una mejor accesibilidad para todos los usuarios).
+- Debajo de la lista de citas el usuario encontrará un ícono para publicar una reseña (bajo el ícono también es posible ver un párrafo que indica "Deja una reseña" para una mejor accesibilidad para todos los usuarios).
 
+![img](Documentacion/caracteristicas/booking.confirmation.PNG)
 ## Editar citas
 - Cuando inicie sesión, aparecerá un ícono de edición para permitir a los usuarios modificar y actualizar sus reservas si lo desean.
 
-![img]()
-
 ## Eliminar citas
 - Cuando inicie sesión, aparecerá un icono de papelera para permitir a los usuarios eliminar sus reservas si lo desean.
-![img]()
+- Un mensaje aparecerá en la parte superior de la pantalla cada vez que el usuario reserve una hora, la modifique o la elimine. 
 
 ## Lista de las últimas reseñas
 - La página Reseñas muestra todas las reseñas publicadas por diferentes usuarios y se muestran en orden de la más nueva a la más antigua.
@@ -307,9 +306,9 @@ Esta página contiene un formulario con detalles de: fecha de reserva, servicio,
 ![img]()
 
 ## Cerrar sesión
-![img]()
+![img](Documentacion/caracteristicas/logout.PNG)
 
-![img]()
+![img](Documentacion/caracteristicas/logout.message.PNG)
 
 ## Panel de administración
 
