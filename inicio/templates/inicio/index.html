@@ -35,7 +35,7 @@
     <div class="container  justify-text text-center">
         <h3 class="mb-3 text-center contact-form titles my-3">Contáctame</h3>
         <p class="text-center"><small>* Todos los campos son requeridos</small></p>
-        <form action="{% url 'home:home' %}" method="post" class="text-center w-85 mx-auto">
+        <form action="{% url 'inicio:inicio' %}" method="post" class="text-center w-85 mx-auto">
             {% csrf_token %}
             {{ form|crispy|safe }}
             <button type="submit" class="btn btn-outline-custom">Enviar</button>

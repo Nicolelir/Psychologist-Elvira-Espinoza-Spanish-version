@@ -1,9 +1,9 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import validate_email
-from .models import Contact
+from .models import Contacto
 
-class ContactForm(forms.ModelForm):
+class ContactoForm(forms.ModelForm):
     class Meta:
-        model = Contact
+        model = Contacto
         fields = ['nombre', 'email', 'consulta']

@@ -8,7 +8,7 @@
         <a class="navbar-brand" href="#">
             <img src="{% static 'images/logo5.png' %}" alt="Elvi Logo" class="logo">
         </a>
-        <a class="elvi" href="{% url 'home:home' %}">
+        <a class="elvi" href="{% url 'inicio:inicio' %}">
             <span class="nav-title-elvi">ELVI</span> <span class="nav-title-psicologa"  style="color: forestgreen;"> Psicóloga en Ruta</span>
         </a>
     </div>
@@ -24,7 +24,7 @@
           <a class="nav-link {% if url_name == 'services' %}active{% endif %}" href="{% url 'services' %}">Servicios</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {% if url_name == 'reviews' %}active{% endif %}" href="{% url 'reviews' %}">Reseñas</a>
+          <a class="nav-link {% if url_name == 'reseñas' %}active{% endif %}" href="{% url 'reseñas' %}">Reseñas</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {% if url_name == 'blog' %}active{% endif %}" href="{% url 'blog' %}">Blog</a>
@@ -39,7 +39,7 @@
             </a>
             <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
               <a class="dropdown-item {% if url_name == 'bookings' %}active{% endif %}" href="{% url 'bookings' %}">Mis reservas</a>
-              <a class="dropdown-item {% if url_name == 'review_add' %}active{% endif %}" href="{% url 'review_add'  %}">Agrega una reseña</a>
+              <a class="dropdown-item {% if url_name == 'reseña_agrega' %}active{% endif %}" href="{% url 'reseña_agrega'  %}">Agrega una reseña</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{% url 'account_logout' %}">Cerrar sesión</a>
             </div>

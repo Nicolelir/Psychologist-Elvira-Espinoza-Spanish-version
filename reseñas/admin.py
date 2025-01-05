@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Review
+from .models import Reseña
 
 # Register your models here.
-class ReviewAdmin(admin.ModelAdmin):
+class ReseñaAdmin(admin.ModelAdmin):
     list_display = ['autor', 'creado_el', 'texto']
     ordering = ['-creado_el']
 
-admin.site.register(Review, ReviewAdmin)
+admin.site.register(Reseña, ReseñaAdmin)

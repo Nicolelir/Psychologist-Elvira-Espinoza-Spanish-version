@@ -5,7 +5,7 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 home_image = CloudinaryField('image', default='placeholder')
 
-class Contact(models.Model):
+class Contacto(models.Model):
     """
     Stores a single contact form message
     """

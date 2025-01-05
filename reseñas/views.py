@@ -9,52 +9,52 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.urls import reverse
-from .forms import ReviewForm
-from .models import Review
+from .forms import ReseñaForm
+from .models import Reseña
 from .models import Booking
 
-class ReviewPage(ListView):
+class ReseñaPagina(ListView):
     """View for displaying reviews"""
-    model = Review
-    template_name = 'reviews/reviews.html'  
-    context_object_name = 'reviews' 
+    model = Reseña
+    template_name = 'reseñas/reseñas.html'  
+    context_object_name = 'reseñas' 
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        for review in context['reviews']:
-            review.full_stars = range(review.clasificación)
-            review.empty_stars = range(5 - review.clasificación)
+        for reseña in context['reseñas']:
+            reseña.full_stars = range(reseña.clasificación)
+            reseña.empty_stars = range(5 - reseña.clasificación)
         return context
         
   
 @login_required
-def add_review(request, booking_id):
+def agrega_reseña(request, booking_id):
     booking = Booking.objects.get(id=booking_id)
     if booking.user != request.user:
         # User is not authorized to leave a review for this booking
         return redirect('home')  
 
     if request.method == 'POST':
-        form = ReviewForm(request.POST, user=request.user)  
+        form = ReseñaForm(request.POST, user=request.user)  
         if form.is_valid():
-            review = form.save(commit=False)
-            review.booking = booking
-            review.author = request.user
-            review.save()
+            reseña = form.save(commit=False)
+            reseña.booking = booking
+            reseña.author = request.user
+            reseña.save()
             return redirect('bookings', booking_id=booking_id)  
     else:
-        form = ReviewForm(user=request.user)  
-    return render(request, 'add_review.html', {'form': form})
+        form = ReseñaForm(user=request.user)  
+    return render(request, 'agrega_reseña.html', {'form': form})
 
 
-class AddReview(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+class AgregaReseña(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     """
     A model to create a review
     """
-    template_name = 'reviews/add_review.html'
-    model = Review
-    form_class = ReviewForm
-    success_url = reverse_lazy('reviews')  
+    template_name = 'reseñas/agrega_reseñas.html'
+    model = Reseña
+    form_class = ReseñaForm
+    success_url = reverse_lazy('reseñas')  
    
     def form_valid(self, form):
         # Set the author of the review to the current user
@@ -70,21 +70,21 @@ class AddReview(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         kwargs['user'] = self.request.user 
         return kwargs
 
-class ReviewPage(ListView):
+class ReseñaPagina(ListView):
     """
     A view to display a paginated list of reviews.
     """
-    model = Review
-    template_name = 'reviews/reviews.html'
-    context_object_name = 'reviews'
+    model = Reseña
+    template_name = 'reseñas/reseñas.html'
+    context_object_name = 'reseñas'
     paginate_by = 6 
 
-class ReviewDetail(DetailView):
+class ReseñaDetalle(DetailView):
     """View a single review"""
 
-    template_name = "reviews/review_detail.html"
-    model = Review
-    context_object_name = "review"
+    template_name = "reseñas/reseña_detalle.html"
+    model = Reseña
+    context_object_name = "reseña"
 
 
    

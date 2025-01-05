@@ -1,6 +1,6 @@
 from django import forms
-from .models import Review, Booking, Services
-class ReviewForm(forms.ModelForm):
+from .models import Reseña, Booking, Services
+class ReseñaForm(forms.ModelForm):
     """A form to add a review"""
 
     def __init__(self, *args, **kwargs):
@@ -22,5 +22,5 @@ class ReviewForm(forms.ModelForm):
         return author
 
     class Meta:
-        model = Review
+        model = Reseña
         fields = ['fecha_de_la_sesión', 'servicio', 'clasificación', 'texto']
