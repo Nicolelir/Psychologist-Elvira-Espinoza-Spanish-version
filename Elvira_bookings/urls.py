@@ -16,6 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from allauth.account.views import LogoutView
+from django.contrib.auth.views import LoginView
+
+from django.views.generic import RedirectView
 
 
 urlpatterns = [
@@ -28,4 +32,9 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('djrichtextfield/', include('djrichtextfield.urls')),
     path('summernote/', include('django_summernote.urls')),
+
+    path('cuenta/registrarse/', RedirectView.as_view(pattern_name='account_signup'), name='cuenta_registrarse'),
+    path('cuentas/iniciar-sesion/', LoginView.as_view(), name='cuenta_iniciar_sesion'),
+    path('cuenta/cerrar-sesion/', LogoutView.as_view(), name='cuenta_cerrar_sesion'),
+    
 ]

@@ -32,7 +32,7 @@ def agrega_reseña(request, booking_id):
     booking = Booking.objects.get(id=booking_id)
     if booking.user != request.user:
         # User is not authorized to leave a review for this booking
-        return redirect('home')  
+        return redirect('inicio')  
 
     if request.method == 'POST':
         form = ReseñaForm(request.POST, user=request.user)  
@@ -41,7 +41,7 @@ def agrega_reseña(request, booking_id):
             reseña.booking = booking
             reseña.author = request.user
             reseña.save()
-            return redirect('bookings', booking_id=booking_id)  
+            return redirect('reservas', booking_id=booking_id)  
     else:
         form = ReseñaForm(user=request.user)  
     return render(request, 'agrega_reseña.html', {'form': form})

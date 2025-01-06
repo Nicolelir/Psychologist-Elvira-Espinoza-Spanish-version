@@ -179,3 +179,6 @@ CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CKEDITOR_UPLOAD_PATH = 'content/ckeditor/'
+
+# Redirige automáticamente después de iniciar sesión
+LOGIN_REDIRECT_URL = '/reservas/agrega/'
