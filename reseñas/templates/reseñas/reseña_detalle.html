@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}ReviewDetail - {{ review.autor }}{% endblock %}
+{% block title %}ReseñaDetalle - {{ reseña.autor }}{% endblock %}
 
 {% block content %} 
 
@@ -8,11 +8,11 @@
         <div class="review-info mt-3 p-1">
            
             <div class="review-detail">
-                <h1 class="card-author text-center">{{ review.autor }}</h1>
+                <h1 class="card-author text-center">{{ reseña.autor }}</h1>
                 <hr style="border-color: #8B4513">
-                <p class="card-created-on text-center">{{ review.creado_el }}</p>
-                <p class="card-service text-center"><strong>Servicio: {{ review.servicio }}</strong></p>
-                <p class="card-content text-center">{{ review.texto }}</p>
+                <p class="card-created-on text-center">{{ reseña.creado_el }}</p>
+                <p class="card-service text-center"><strong>Servicio: {{ reseña.servicio }}</strong></p>
+                <p class="card-content text-center">{{ reseña.texto }}</p>
                 <hr style="border-color: #8B4513">
             </div>
         </div>
