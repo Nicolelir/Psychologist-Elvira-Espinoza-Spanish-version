@@ -2,7 +2,7 @@
 
 {% load static %}
 
-{% block title %}Create a Booking{% endblock %}
+{% block title %}Crea una Reserva{% endblock %}
 
 {% block content %}
 
@@ -33,7 +33,7 @@
 
 <div class="d-flex justify-content-center align-items-center">
     {% if request.user.is_authenticated %}
-    <a href="{% url 'bookings' %}" class="btn-container">
+    <a href="{% url 'reservas' %}" class="btn-container">
         <div class="icon-container">
             <img src="{% static 'icons/booking.png' %}" alt="Tus reservas" class="icon-review-btn booking-icon">
         </div>

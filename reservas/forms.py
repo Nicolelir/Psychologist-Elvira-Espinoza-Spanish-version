@@ -1,10 +1,10 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import Booking
+from .models import Reserva
 from datetime import datetime, timedelta
 
-class BookingForm(forms.ModelForm):
+class ReservaForm(forms.ModelForm):
     """A form to add a booking"""
 
     def __init__(self, *args, **kwargs):
@@ -26,9 +26,9 @@ class BookingForm(forms.ModelForm):
         self.fields['fecha'].widget = forms.DateInput(attrs={'type': 'date', 'min': datetime.now().date()})
         
         # Dynamically limit hora choices if fecha is selected
-        self.fields['hora'].choices = self.get_available_time_slots()
+        self.fields['hora'].choices = self.get_horas_disponibles()
 
-    def get_available_time_slots(self):
+    def get_horas_disponibles(self):
         """
         Returns a list of available time slots based on the selected date.
         """
@@ -48,19 +48,19 @@ class BookingForm(forms.ModelForm):
         
         # Parse fecha and filter existing bookings
         selected_date = datetime.strptime(fecha, '%Y-%m-%d').date()
-        booked_slots = Booking.objects.filter(fecha=selected_date).values_list('hora', flat=True)
+        booked_slots = Reserva.objects.filter(fecha=selected_date).values_list('hora', flat=True)
         
         # Define all possible time slots
-        all_time_slots = [
+        todas_horas_disponibles = [
             '09:00 - 10:00', '10:00 - 11:00', '11:00 - 12:00',
             '12:00 - 13:00', '14:00 - 15:00',
             '15:00 - 16:00', '16:00 - 17:00', '17:00 - 18:00'
         ]
         
         # Filter out booked slots
-        available_slots = [(slot, slot) for slot in all_time_slots if slot not in booked_slots]
+        horas_disponibles = [(slot, slot) for slot in all_time_slots if slot not in booked_slots]
         
-        return available_slots
+        return horas_disponibles
 
     def clean(self):
         cleaned_data = super().clean()
@@ -69,11 +69,11 @@ class BookingForm(forms.ModelForm):
 
         # Check if a booking with the same date and time already exists
         if (fecha and hora and
-                Booking.objects.filter(fecha=fecha, hora=hora).exists()):
+                Reserva.objects.filter(fecha=fecha, hora=hora).exists()):
             self.add_error('hora', 'Esta fecha y hora ya ha sido seleccionada, por favor escoge otra')
 
     class Meta:
-        model = Booking
+        model = Reserva
         fields = [
             'nombre', 'apellido', 'email', 'servicio', 'fecha', 'hora'
         ]

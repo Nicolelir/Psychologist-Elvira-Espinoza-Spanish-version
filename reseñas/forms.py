@@ -1,5 +1,5 @@
 from django import forms
-from .models import Reseña, Booking, Services
+from .models import Reseña, Reserva, Services
 class ReseñaForm(forms.ModelForm):
     """A form to add a review"""
 
@@ -9,7 +9,7 @@ class ReseñaForm(forms.ModelForm):
 
 
         if user:
-            self.fields['fecha_de_la_sesión'].queryset = Booking.objects.filter(user=user)
+            self.fields['fecha_de_la_sesión'].queryset = Reserva.objects.filter(user=user)
             
     
         # Exclude author field manually

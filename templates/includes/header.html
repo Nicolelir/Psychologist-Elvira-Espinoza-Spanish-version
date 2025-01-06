@@ -31,14 +31,14 @@
         </li>
         {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'booking_add' %}active{% endif %}" href="{% url 'booking_add' %}">Reservar una Hora</a>
+            <a class="nav-link {% if url_name == 'reserva_agrega' %}active{% endif %}" href="{% url 'reserva_agrega' %}">Reservar una Hora</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Hola {{ user.username }}
             </a>
             <div class="dropdown-menu"  aria-labelledby="navbarDropdown">
-              <a class="dropdown-item {% if url_name == 'bookings' %}active{% endif %}" href="{% url 'bookings' %}">Mis reservas</a>
+              <a class="dropdown-item {% if url_name == 'reservas' %}active{% endif %}" href="{% url 'reservas' %}">Mis reservas</a>
               <a class="dropdown-item {% if url_name == 'reseña_agrega' %}active{% endif %}" href="{% url 'reseña_agrega'  %}">Agrega una reseña</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{% url 'account_logout' %}">Cerrar sesión</a>
@@ -46,7 +46,7 @@
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'accounts_login' %}active{% endif %}" href="{% url 'booking_add' %}">Inicia sesión</a>
+            <a class="nav-link {% if url_name == 'accounts_login' %}active{% endif %}" href="{% url 'reserva_agrega' %}">Inicia sesión</a>
           </li>
         {% endif %}
       </ul>

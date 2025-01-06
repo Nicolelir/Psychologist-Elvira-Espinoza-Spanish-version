@@ -20,13 +20,13 @@ while start_time < end_time:
     start_time += timedelta(hours=1)
 
 
-class Booking(models.Model):
+class Reserva(models.Model):
     """ A model for booking an appointment """
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookings')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reservas')
     nombre = models.CharField(max_length=20, blank=True, null=True)
     apellido = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField()
-    servicio = models.ForeignKey(Services, on_delete=models.CASCADE, related_name="booking", default=1)
+    servicio = models.ForeignKey(Services, on_delete=models.CASCADE, related_name="reserva", default=1)
     fecha = models.DateField(default=datetime.now, blank=True)
     hora = models.CharField(max_length=20, choices=TIME_CHOICES, default="09:00 - 10:00")
     comentarios = models.TextField(blank=True)

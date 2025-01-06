@@ -11,7 +11,7 @@ from django.contrib import messages
 from django.urls import reverse
 from .forms import ReseñaForm
 from .models import Reseña
-from .models import Booking
+from .models import Reserva
 
 class ReseñaPagina(ListView):
     """View for displaying reviews"""

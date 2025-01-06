@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'djrichtextfield',
     'inicio',
     'services',
-    'bookings',
+    'reservas',
     'reseñas',
     'blog',
 
