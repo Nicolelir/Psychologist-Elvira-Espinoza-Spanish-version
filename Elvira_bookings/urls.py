@@ -28,6 +28,7 @@ urlpatterns = [
     path("blog/", include("blog.urls")),
     path('accounts/', include('allauth.urls')),  # Default paths for login, signup, etc.
     path('djrichtextfield/', include('djrichtextfield.urls')),
+    path('summernote/', include('django_summernote.urls')),
 
     # Custom URLs with Spanish names
     path('cuenta/registrarse/', SignupView.as_view(), name='cuenta_registrarse'),  # Signup

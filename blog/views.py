@@ -7,10 +7,9 @@ class PostList(generic.ListView):
     Returns all published posts in :model:`blog.Post`
     and displays them in a page of six posts.
     """
-    queryset = Post.objects.all()
-    template_name = "blog/index_blog.html"
+    queryset = Post.objects.filter(estado=1).order_by("-creado_en")
+    template_name = "blog/blog.html"
     paginate_by = 6
-
 
 def post_detail(request, slug):
     """
@@ -21,20 +20,12 @@ def post_detail(request, slug):
         An instance of :model:`blog.Post`.
 
     **Template:**
-    :template:`blog/post_detail.html`
+    :template:`blog/post_detalle.html`
     """
-    # Assuming 'status=1' filters published posts only
-    queryset = Post.objects.filter(status=1)
+    queryset = Post.objects.filter(estado=1)
     post = get_object_or_404(queryset, slug=slug)
-
     return render(
         request,
-        "blog/post_detail.html",
-        {
-            "post": post,
-        },
+        "blog/post_detalle.html",
+        {"post": post},
     )
-
-   
-    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-    
