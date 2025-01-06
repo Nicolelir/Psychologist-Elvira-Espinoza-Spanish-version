@@ -17,7 +17,7 @@
         <div class="col-12 mt-3">
             
             <div class="row justify-content-center text-center"> 
-                {% if reviews|length == 0 %}
+                {% if reseñas|length == 0 %}
                 <div class="col-12 text-center">
                     <p class="section-p">No hay reseñas.</p>
                     <div class="mb-3 mx-auto text-center">
@@ -26,22 +26,22 @@
                 </div>
                 {% else %}
                 <div class="container d-flex flex-row flex-wrap justify-content-center">
-                    {% for review in reviews %}
+                    {% for reseña in reseñas %}
                     <div class="card m-3" style="width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-author">{{ review.autor }}</h5>
+                            <h5 class="card-author">{{ reseña.autor }}</h5>
                             <div class="rating bordered-star">
-                                {% if review.clasificación == 1 %}
+                                {% if reseña.clasificación == 1 %}
                                 <span>&#x2605;</span>
                                 {% else %}
-                                {% for star in review.full_stars %}
+                                {% for star in reseña.full_stars %}
                                 <span>&#x2605;</span>
                                 {% endfor %}
                                 {% endif %}
                             </div>
-                            <p class="card-created-on mb-0"><small>{{ review.creado_el|date:"d/m/Y H:i" }}</small></p>
-                            <p class="card-service mb-2"><small>Servicio: {{ review.servicio }}</small></p>
-                            <p class="card-content">{{ review.texto|slice:":100" }}{% if review.texto|length > 100 %} <a href="{% url 'reseña_detalle' pk=review.pk %}" class="review_detail" aria-label="Click to see more about {{ review.author }}"> ver más</a>{% endif %}</p>
+                            <p class="card-created-on mb-0"><small>{{ reseña.creado_el|date:"d/m/Y H:i" }}</small></p>
+                            <p class="card-service mb-2"><small>Servicio: {{ reseña.servicio }}</small></p>
+                            <p class="card-content">{{ reseña.texto|slice:":100" }}{% if reseña.texto|length > 100 %} <a href="{% url 'reseña_detalle' pk=reseña.pk %}" class="review_detail" aria-label="Click to see more about {{ reseña.autor }}"> ver más</a>{% endif %}</p>
                            
                         </div>
                     </div>

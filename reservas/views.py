@@ -16,6 +16,10 @@ class ReservasPagina(ListView):
     template_name = 'reservas/reservas.html'  
     context_object_name = 'reservas'
 
+def get_queryset(self):
+        # Filtra las reservas para que solo se muestren las del usuario autenticado
+        return Reserva.objects.filter(user=self.request.user)
+        
 @login_required
 def mis_reservas(request):
     """View for displaying a user's bookings"""
