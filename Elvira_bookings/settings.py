@@ -30,8 +30,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com', '8000-nicolelir-psychologiste-4cknfcrju1j.ws.codeinstitute-ide.net']
-CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io', 'https://8000-nicolelir-psychologiste-4cknfcrju1j.ws.codeinstitute-ide.net'] 
+ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com', '8000-nicolelir-psychologiste-aozrmw9xqkk.ws.codeinstitute-ide.net']
+CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io', 'https://8000-nicolelir-psychologiste-aozrmw9xqkk.ws.codeinstitute-ide.net'] 
 
 
 
@@ -180,5 +180,3 @@ CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CKEDITOR_UPLOAD_PATH = 'content/ckeditor/'
 
-# Redirige automáticamente después de iniciar sesión
-LOGIN_REDIRECT_URL = '/reservas/agrega/'

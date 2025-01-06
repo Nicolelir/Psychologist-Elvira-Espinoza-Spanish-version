@@ -16,11 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from allauth.account.views import LogoutView
+from allauth.account.views import LogoutView, SignupView
 from django.contrib.auth.views import LoginView
-
-from django.views.generic import RedirectView
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,12 +26,10 @@ urlpatterns = [
     path('reservas/', include('reservas.urls')),
     path("reseñas/", include("reseñas.urls")),
     path("blog/", include("blog.urls")),
-    path('accounts/', include('allauth.urls')),
-    path('djrichtextfield/', include('djrichtextfield.urls')),
-    path('summernote/', include('django_summernote.urls')),
+    path('accounts/', include('allauth.urls')),  # Default paths for login, signup, etc.
 
-    path('cuenta/registrarse/', RedirectView.as_view(pattern_name='account_signup'), name='cuenta_registrarse'),
-    path('cuentas/iniciar-sesion/', LoginView.as_view(), name='cuenta_iniciar_sesion'),
-    path('cuenta/cerrar-sesion/', LogoutView.as_view(), name='cuenta_cerrar_sesion'),
-    
+    # Custom URLs with Spanish names
+    path('cuenta/registrarse/', SignupView.as_view(), name='cuenta_registrarse'),  # Signup
+    path('cuenta/iniciar-sesion/', LoginView.as_view(), name='cuenta_iniciar_sesion'),  # Login
+    path('cuenta/cerrar-sesion/', LogoutView.as_view(), name='cuenta_cerrar_sesion'),  # Logout
 ]

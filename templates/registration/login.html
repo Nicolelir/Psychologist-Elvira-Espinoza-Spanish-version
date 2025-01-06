@@ -12,7 +12,7 @@
   <a href="{{ registrarse_url }}">registrate aquí.</a> {% endblocktrans %}</p>
 
 
-  <form class="form p-2" method="POST" action="{% url 'cuenta_iniciar_sesion' %}">
+  <form class="form p-2" method="POST" action="{% url 'cuenta_iniciar_sesion' %}?next={% url 'reserva_agrega' %}">
     {% csrf_token %}
     {{ form|crispy }}
     <button class="btn btn-outline-custom w-25 mb-2" type="submit">{% trans "Inicia Sesión" %}</button>
