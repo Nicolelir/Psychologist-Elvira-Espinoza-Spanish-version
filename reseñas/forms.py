@@ -1,5 +1,5 @@
 from django import forms
-from .models import Reseña, Reserva, Services
+from .models import Reseña, Reserva, Servicios
 class ReseñaForm(forms.ModelForm):
     """A form to add a review"""
 

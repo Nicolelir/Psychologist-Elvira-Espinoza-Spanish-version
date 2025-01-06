@@ -34,12 +34,12 @@
     {% for service in services %} 
     <div class="card m-3">
         <div> 
-            <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.title }}">
+            <img src="{{ servicio.imagen.url }}" class="card-img-top" alt="{{ servicio.título }}">
            
         </div>
         <div class="card-body">
-            <h2 class="card-title">{{ service.title|safe }}</h2>
-            <div class="card-text">{{ service.description|safe }}</div>
+            <h2 class="card-title">{{ servicio.título|safe }}</h2>
+            <div class="card-text">{{ servicio.descripción|safe }}</div>
         </div>
     </div>
     {% endfor %}
@@ -49,7 +49,7 @@
     <div>
         {% if user.is_authenticated %}
             <h3>¡los sueños son más grandes que los miedos!</h3>
-            <p class="text-center m-3 signup"><a href="{% url 'booking_add' %}" class="btn btn-outline-custom w-35 mx-auto mb-4">Reserva tu hora aquí!</a></p>
+            <p class="text-center m-3 signup"><a href="{% url 'reserva_agrega' %}" class="btn btn-outline-custom w-35 mx-auto mb-4">Reserva tu hora aquí!</a></p>
         {% else %}
         <p class="text-center m-3 signup"><a href="{% url 'account_login' %}" class="btn btn-outline-custom w-50 mx-auto mb-4">Para reservar una hora conmigo por favor inicia sesión aquí!</a></p>
             

@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime, timedelta
 from django.contrib.auth.models import User
-from services.models import Services
+from servicios.models import Servicios
 
 # Create your models here.
 SERVICES_TYPES = (
@@ -26,7 +26,7 @@ class Reserva(models.Model):
     nombre = models.CharField(max_length=20, blank=True, null=True)
     apellido = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField()
-    servicio = models.ForeignKey(Services, on_delete=models.CASCADE, related_name="reserva", default=1)
+    servicio = models.ForeignKey(Servicios, on_delete=models.CASCADE, related_name="reserva", default=1)
     fecha = models.DateField(default=datetime.now, blank=True)
     hora = models.CharField(max_length=20, choices=TIME_CHOICES, default="09:00 - 10:00")
     comentarios = models.TextField(blank=True)
