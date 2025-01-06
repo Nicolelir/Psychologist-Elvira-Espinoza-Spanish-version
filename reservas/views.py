@@ -63,9 +63,11 @@ class AgregaReserva(LoginRequiredMixin, CreateView):
                 '15:00 - 16:00', '16:00 - 17:00', '17:00 - 18:00'
             ]
             
+            # Se usa 'horas_disponibles' en lugar de 'available_time_slots'
             horas_disponibles = [slot for slot in todas_horas_disponibles if slot not in booked_times]
             
-            form.fields['hora'].choices = [(slot, slot) for slot in available_time_slots]
+            # Ahora, se asignan las opciones de hora al formulario
+            form.fields['hora'].choices = [(slot, slot) for slot in horas_disponibles]
 
         return form
 

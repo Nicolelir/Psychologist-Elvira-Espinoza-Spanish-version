@@ -11,7 +11,7 @@ class ReservaForm(forms.ModelForm):
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
         if user:
-          self.fields['email'].initial = user.email
+            self.fields['email'].initial = user.email
         self.fields['nombre'].required = True
         self.fields['apellido'].required = True
         self.fields['servicio'].required = True
@@ -22,7 +22,7 @@ class ReservaForm(forms.ModelForm):
         self.fields['servicio'].label = "Servicio"
         self.fields['fecha'].widget = forms.DateInput(attrs={'type': 'date'})
 
-      # Restrict fecha to future dates
+        # Restrict fecha to future dates
         self.fields['fecha'].widget = forms.DateInput(attrs={'type': 'date', 'min': datetime.now().date()})
         
         # Dynamically limit hora choices if fecha is selected
@@ -58,7 +58,7 @@ class ReservaForm(forms.ModelForm):
         ]
         
         # Filter out booked slots
-        horas_disponibles = [(slot, slot) for slot in all_time_slots if slot not in booked_slots]
+        horas_disponibles = [(slot, slot) for slot in todas_horas_disponibles if slot not in booked_slots]
         
         return horas_disponibles
 
@@ -77,5 +77,3 @@ class ReservaForm(forms.ModelForm):
         fields = [
             'nombre', 'apellido', 'email', 'servicio', 'fecha', 'hora'
         ]
-
-    

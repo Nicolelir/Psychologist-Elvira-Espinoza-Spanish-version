@@ -14,7 +14,7 @@
 
        
            
-    {% if request.user.bookings.all %}
+    {% if request.user.reservas.all %}
     <div class="table-responsive my-4 w-75 mx-auto">
         <table class="table">
             <thead>
@@ -25,30 +25,29 @@
                 </tr>
             </thead>
             <tbody>
-                {% for booking in request.user.bookings.all %}
-                <tr style="border-color: #8B4513;">
-                    <td>{{ booking.fecha|date:"d/m/Y" }}</td>
-                    <td>{{ booking.hora }}</td>
-                    <td>{% if request.user == booking.user %}
-                        <div class="text-center">
-                            <!-- edit/delete -->
-                            <div class="d-flex justify-content-center justify-content-md-start">
-                                <div class="col">
-                                    <a href="{% url 'edita_reserva' booking.id %}" class="btn btn-link" style="text-decoration: none; color:burlywood;"
-                                        title="Edit Booking"><img src="{% static '../static/icons/edit.png' %}"
-                                        alt="editar reserva" class="icon-booking-btn"></a>
-                                </div>
-                                <div class="col">
-                                    <a href="{% url 'elimina_reserva' booking.id %}" class="btn btn-link" style="text-decoration: none;color:burlywood;"
-                                        title="Elimina reserva {% static '../static/icons/delete.png' %}"
-                                        alt="eliminar reserva" class="icon-booking-btn"></a>
-                                </div>
-                            </div>
-                        </div>
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
+                {% for reserva in reservas %}
+    <tr style="border-color: #8B4513;">
+        <td>{{ reserva.fecha|date:"d/m/Y" }}</td>
+        <td>{{ reserva.hora }}</td>
+        <td>{% if request.user == reserva.user %}
+            <div class="text-center">
+                <div class="d-flex justify-content-center justify-content-md-start">
+                    <div class="col">
+                        <a href="{% url 'edita_reserva' reserva.id %}" class="btn btn-link" style="text-decoration: none; color:burlywood;">
+                            <img src="{% static 'icons/edit.png' %}" alt="editar reserva" class="icon-booking-btn">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="{% url 'elimina_reserva' reserva.id %}" class="btn btn-link" style="text-decoration: none;color:burlywood;">
+                            <img src="{% static 'icons/delete.png' %}" alt="eliminar reserva" class="icon-booking-btn">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </td>
+    </tr>
+{% endfor %}
             </tbody>
         </table>
     </div>
