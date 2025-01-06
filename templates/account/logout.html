@@ -3,15 +3,15 @@
 
 {% load i18n %}
 
-{% block title %}{% trans "Sign Out" %}{% endblock %}
+{% block title %}{% trans "Cerrar sesión" %}{% endblock %}
 
 {% block content %}
 <div class="container text-center lead mb-3 title-login">
-  <h1 class="titles mb-3">{% trans "Sign Out" %}</h1>
+  <h1 class="titles mb-3">{% trans "Cerrar sesión" %}</h1>
 
   <p>{% trans 'Estás seguro que deseas cerrar sesión?' %}</p>
   <p>{% trans ' No hay problema, nos vemos pronto!' %}</p>
-  <form method="post" action="{% url 'account_logout' %}">
+  <form method="post" action="{% url 'cuenta_cerrar_sesion' %}">
     {% csrf_token %}
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>

@@ -2,17 +2,17 @@
 {% load crispy_forms_tags %}
 {% load i18n %}
 
-{% block title %}{% trans "Sign In" %}{% endblock %}
+{% block title %}{% trans "Inicia sesión" %}{% endblock %}
 
 {% block content %}
 <div class="container text-center lead mb-3 title-login ">
   <h1 class="titles mb-3">{% trans "Inicia sesión" %}</h1>
 
   <p class="lead mb-3 text-center">{% blocktrans %}Bienvenido!. Para agendar una hora conmigo, por favor inicia sesión. Si aún no tienes una cuenta, entonces 
-  <a href="{{ signup_url }}">registrate aquí.</a> {% endblocktrans %}</p>
+  <a href="{{ registrarse_url }}">registrate aquí.</a> {% endblocktrans %}</p>
 
 
-  <form class="form p-2" method="POST" action="{% url 'account_login' %}?next={% url 'booking_add' %}">
+  <form class="form p-2" method="POST" action="{% url 'cuenta_iniciar_sesion' %}?next={% url 'booking_add' %}">
     {% csrf_token %}
     {{ form|crispy }}
     {% if redirect_field_value %}

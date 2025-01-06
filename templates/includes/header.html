@@ -41,12 +41,12 @@
               <a class="dropdown-item {% if url_name == 'reservas' %}active{% endif %}" href="{% url 'reservas' %}">Mis reservas</a>
               <a class="dropdown-item {% if url_name == 'reseña_agrega' %}active{% endif %}" href="{% url 'reseña_agrega'  %}">Agrega una reseña</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{% url 'account_logout' %}">Cerrar sesión</a>
+              <a class="dropdown-item" href="{% url 'cuenta_cerrar_sesion' %}">Cerrar sesión</a>
             </div>
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'accounts_login' %}active{% endif %}" href="{% url 'reserva_agrega' %}">Inicia sesión</a>
+            <a class="nav-link {% if url_name == 'cuenta_iniciar_sesion' %}active{% endif %}" href="{% url 'reserva_agrega' %}">Inicia sesión</a>
           </li>
         {% endif %}
       </ul>

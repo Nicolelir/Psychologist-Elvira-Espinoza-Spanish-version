@@ -14,7 +14,7 @@
             {% csrf_token %}
             <p class="container text-center lead mb-3">¿Estás seguro que quieres elimianr esta reserva?</p>
             <input type="submit" class="btn btn-outline-custom booking-btn mx-auto my-3" value="Confirmar">
-            <a href="{% url 'bookings' %}" class="btn btn-danger btn-delete">Cancelar</a>
+            <a href="{% url 'reservas' %}" class="btn btn-danger btn-delete">Cancelar</a>
         </form>
     </div>
     

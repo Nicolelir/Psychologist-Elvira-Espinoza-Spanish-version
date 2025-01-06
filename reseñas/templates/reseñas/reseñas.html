@@ -41,7 +41,7 @@
                             </div>
                             <p class="card-created-on mb-0"><small>{{ review.creado_el|date:"d/m/Y H:i" }}</small></p>
                             <p class="card-service mb-2"><small>Servicio: {{ review.servicio }}</small></p>
-                            <p class="card-content">{{ review.texto|slice:":100" }}{% if review.texto|length > 100 %} <a href="{% url 'review_detail' pk=review.pk %}" class="review_detail" aria-label="Click to see more about {{ review.author }}"> ver más</a>{% endif %}</p>
+                            <p class="card-content">{{ review.texto|slice:":100" }}{% if review.texto|length > 100 %} <a href="{% url 'reseña_detalle' pk=review.pk %}" class="review_detail" aria-label="Click to see more about {{ review.author }}"> ver más</a>{% endif %}</p>
                            
                         </div>
                     </div>

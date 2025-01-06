@@ -5,7 +5,7 @@
 
 {% load i18n %}
 
-{% block title %}{% trans "Signup" %}{% endblock %}
+{% block title %}{% trans "Registrate" %}{% endblock %}
 
 {% block content %}
 <div class="container text-center lead mb-3 title-login ">
@@ -13,9 +13,9 @@
 
   <p class="title-signup">{% blocktrans %}No estás seguro si la terapia es para ti?
     <p class="p-signup">Explora hoy los beneficios....
-        <p class="p2-signup">Ya tienes una cuenta? Enconces por favor <a href="{{ login_url }}">Inicia sesión</a>.{% endblocktrans %}</p>
+        <p class="p2-signup">Ya tienes una cuenta? Enconces por favor <a href="{{ iniciar_sesion_url }}">Inicia sesión</a>.{% endblocktrans %}</p>
 
-  <form class="form p-2" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  <form class="form p-2" id="signup_form" method="post" action="{% url 'cuenta_registrarse' %}">
     {% csrf_token %}
     {{ form|crispy }}
     {% if redirect_field_value %}
