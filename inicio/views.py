@@ -19,7 +19,7 @@ def contacto_form_view(request):
 def inicio_view(request):
     
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = ContactoForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, "Tu mensaje ha sido enviado con éxito!")

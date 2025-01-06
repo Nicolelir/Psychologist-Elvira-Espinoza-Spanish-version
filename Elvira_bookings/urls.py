@@ -27,6 +27,7 @@ urlpatterns = [
     path("reseñas/", include("reseñas.urls")),
     path("blog/", include("blog.urls")),
     path('accounts/', include('allauth.urls')),  # Default paths for login, signup, etc.
+    path('djrichtextfield/', include('djrichtextfield.urls')),
 
     # Custom URLs with Spanish names
     path('cuenta/registrarse/', SignupView.as_view(), name='cuenta_registrarse'),  # Signup
