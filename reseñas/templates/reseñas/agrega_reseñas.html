@@ -11,7 +11,7 @@
         {% csrf_token %}
         <div class="row">
             <div class="col m-4 mb-5">
-                <h4 class="text-center mb-3">Details</h4>
+                <h4 class="text-center mb-3">Detalles</h4>
                     {{ form.fecha_de_la_sesión|as_crispy_field|safe }}
                     {{ form.servicio|as_crispy_field|safe }}
                     {{ form.clasificación|as_crispy_field|safe}}

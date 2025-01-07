@@ -84,9 +84,9 @@ Fueron creados usando Balsamiq. Las secciones siguientes muestran los marcos est
 - Página de inicio
 La página de inicio tiene una imagen principal, una sección de bienvenida y un formulario de contacto, debajo del formulario de contacto hay un botón "¡Lea más sobre mí!" que va directamente a la página de Servicios. 
 <detalles>
-<summary>Haga clic para ver los wireframes de la página de inicio</summary>
+<summary>Haga clic para ver los esquemas de la página de inicio</summary>
 
-![img]()
+![img](Documentacion/esquemas/inicio.PNG)
 </detalles>
 
 - Acerca de/Servicios
@@ -94,17 +94,17 @@ Esta página tiene 2 secciones, una sección "Acerca de mí" donde los usuarios 
 La segunda sección tiene una lista de los servicios prestados al especialista y en la parte inferior de la página hay un botón en el que los usuarios pueden hacer clic si deciden seguir adelante reservando una cita. Para acceder a la página de reservas, los usuarios deben iniciar sesión o registrarse primero. 
 
 <detalles>
-<summary>Haga clic para ver los wireframes de la página de servicios</summary>
+<summary>Haga clic para ver esquemas de la página de servicios</summary>
 
-![img]()
+[img](Documentacion/esquemas/servicios.PNG)
 </detalles>
 
 - Página de reserva de citas (Agregar una cita)
 
 <detalles>
-<summary>Haga clic para agregar estructuras alámbricas de la página de reservas</summary>
+<summary>Haga clic para ver esquemas de la página de reservas</summary>
 
-![img]()
+[img](Documentacion/esquemas/reserva.hora.PNG)
 </detalles>
 
 - Página de de reserva citas (lista de citas)
@@ -112,21 +112,28 @@ La segunda sección tiene una lista de los servicios prestados al especialista y
 <detalles>
 <summary>Haga clic para ver los esquemas de la lista de citas</summary>
 
-![img]()
+[img](Documentacion/esquemas/mis.reservas.PNG)
 </detalles>
 
 - Página de reseñas (Agregar una reseña)
 <detalles>
-<summary>Haga clic para ver los wireframes de la página Agregar reseña</summary>
+<summary>Haga clic para ver esquemas  de la página Agregar reseña</summary>
 
-![img]()
+[img](Documentacion/esquemas/agregar.reseña.PNG)
 </detalles>
 
 - Página de reseñas (lista de reseñas)
 <detalles>
-<summary>Haga clic para ver los wireframes de la página de lista de reseñas</summary>
+<summary>Haga clic para ver esquemas  de la página de lista de reseñas</summary>
 
-![img]()
+[img](Documentacion/esquemas/Reseñas.PNG)
+</detalles>
+
+- Página de Blog 
+<detalles>
+<summary>Haga clic para ver esquemas  de la página de Blog</summary>
+
+[img](Documentacion/esquemas/blog.PNG)
 </detalles>
 
 ## Esquema de base de datos
@@ -258,11 +265,11 @@ css que se utilizan en todas las páginas del proyecto.
 
 ## Página de inicio de sesión
 
-![img](Documentacion/caracteristicas/login.PNG)
+![img](Documentacion/caracteristicas/inicia.sesion.PNG)
 
-## Acerca de la sección 
+## Sección Acerca de..
 
-![img](Documentacion/caracteristicas/about.PNG)
+![img](Documentacion/caracteristicas/acerca.PNG)
 
 ## Sección de servicios 
 
@@ -279,7 +286,7 @@ css que se utilizan en todas las páginas del proyecto.
 - Si una combinación de fecha y hora no está disponible, se informa al usuario mediante un mensaje de advertencia. 
 - Los comentarios de los usuarios se envían por mensaje una vez que se ha enviado y actualizado una reserva, el mensaje desaparece después de 5 segundos.
 
-![img](Documentacion/caracteristicas/booking.PNG)
+![img](Documentacion/caracteristicas/reserva.PNG)
 
 ## Lista de citas de usuarios
 - Panel de control solo visible para usuarios registrados que hayan realizado una reserva anterior
@@ -297,7 +304,7 @@ css que se utilizan en todas las páginas del proyecto.
 - En esta página se mostrarán todas las reseñas publicadas por diferentes usuarios, en orden de la más nueva a la más antigua.
 - Si no hay reseñas aparecerá un mensaje "No hay reseñas" y un botón para volver a la página principal. 
 
-![img](Documentacion/caracteristicas/reviews0.PNG)
+![img](Documentacion/caracteristicas/reseñas0.PNG)
 
 - Cada recuadro mostrará el nombre del autor, la fecha de publicación, el servicio reservado, una sección del cuerpo para los comentarios y una escala de calificación del 1 al 5 representada por estrellas.
 
@@ -307,7 +314,7 @@ css que se utilizan en todas las páginas del proyecto.
 
 - Si la sección del cuerpo de los comentarios supera una determinada cantidad de caracteres, los usuarios verán un hipervínculo "ver más" que les permitirá mostrar el contenido completo en una nueva ventana, favoreciendo una mejor visualización del contenido junto con un botón para volver a la página de reseñas.
 
-![img](Documentacion/caracteristicas/reviews.detail.PNG)
+![img](Documentacion/caracteristicas/reseña.detalle.PNG)
 
 ## Agregar una reseña
 Esta página contiene un formulario con detalles de: fecha de reserva, servicio, fecha, calificación y un comentario. Todos los campos son solicitados para enviar el formulario.
@@ -315,9 +322,14 @@ Esta página contiene un formulario con detalles de: fecha de reserva, servicio,
 ![img](Documentacion/caracteristicas/review.post.PNG)
 
 ## Cerrar sesión
-![img](Documentacion/caracteristicas/logout.PNG)
+
+![img](Documentacion/caracteristicas/cerrar.sesion.PNG)
 
 ![img](Documentacion/caracteristicas/logout.message.PNG)
+
+![img](Documentacion/caracteristicas/cerrar.sesio.mensaje.PNG)
+
+
 
 ## Panel de administración
 
