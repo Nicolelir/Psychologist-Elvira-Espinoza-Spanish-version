@@ -232,23 +232,21 @@ css que se utilizan en todas las páginas del proyecto.
 
 -La imagen principal muestra una imagen grande de Elvira, que fue elegida por ella, y que representa el estilo de psicología que practica, en un ambiente de confianza y relajación. 
 
-![img](Documentacion/caracteristicas/hero%20image.PNG)
+![img](Documentacion/caracteristicas/imagen.inicio.PNG)
 
 - Mas abajo hay un breve párrafo de bienvenida al usuario, con un botón de  "Lee más acerca de mi!" que lleva directamente a la página de servicios. Este botón sólo es visible cuando ningún usuario ha iniciado sesión. 
 
-![img](Documentacion/caracteristicas/welcome.PNG)
-
-
+![img](Documentacion/caracteristicas/bienvenido.PNG)
 ## Formulario de contacto
 - 
 
-![img](Documentacion/caracteristicas/contact.form.PNG)
+![img](Documentacion/caracteristicas/contacto.PNG)
 
 ## Pie de página
 - Al igual que la barra de navegación, el pie de página aparece en cada página y proporciona enlaces a las respectivas páginas de redes sociales.
 - Los enlaces se abren en una nueva pestaña.
 
-![img](Documentacion/caracteristicas/footer.PNG)
+![img](Documentacion/caracteristicas/pie.pagina.PNG)
 
 ## Página de inicio de sesión y registro
 
@@ -256,7 +254,7 @@ css que se utilizan en todas las páginas del proyecto.
 
 - También se rediseñó la página "Olvidé mi contraseña" a partir de las plantillas AllAuth, pero su funcionalidad completa aún no está activada para esta versión.
 
-![img](Documentacion/caracteristicas/signup.PNG)
+![img](Documentacion/caracteristicas/registrate.PNG)
 
 ## Página de inicio de sesión
 
