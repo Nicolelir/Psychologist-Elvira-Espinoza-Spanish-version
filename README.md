@@ -83,65 +83,65 @@ Fueron creados usando Balsamiq. Las secciones siguientes muestran los marcos est
 
 - Página de inicio
 La página de inicio tiene una imagen principal, una sección de bienvenida y un formulario de contacto, debajo del formulario de contacto hay un botón "¡Lea más sobre mí!" que va directamente a la página de Servicios. 
-<detalles>
+<details>
 <summary>Haga clic para ver los esquemas de la página de inicio</summary>
 
 ![img](Documentacion/esquemas/inicio.PNG)
-</detalles>
+</details>
 
 - Acerca de/Servicios
 Esta página tiene 2 secciones, una sección "Acerca de mí" donde los usuarios pueden leer sobre la misión y visión de Elvira. 
 La segunda sección tiene una lista de los servicios prestados al especialista y en la parte inferior de la página hay un botón en el que los usuarios pueden hacer clic si deciden seguir adelante reservando una cita. Para acceder a la página de reservas, los usuarios deben iniciar sesión o registrarse primero. 
 
-<detalles>
+<details>
 <summary>Haga clic para ver esquemas de la página de servicios</summary>
 
-[img](Documentacion/esquemas/servicios.PNG)
-</detalles>
+![img](Documentacion/esquemas/servicios.PNG)
+</details>
 
 - Página de reserva de citas (Agregar una cita)
 
-<detalles>
+<details>
 <summary>Haga clic para ver esquemas de la página de reservas</summary>
 
-[img](Documentacion/esquemas/reserva.hora.PNG)
-</detalles>
+![img](Documentacion/esquemas/reserva.hora.PNG)
+</details>
 
 - Página de de reserva citas (lista de citas)
 
-<detalles>
+<details>
 <summary>Haga clic para ver los esquemas de la lista de citas</summary>
 
-[img](Documentacion/esquemas/mis.reservas.PNG)
-</detalles>
+![img](Documentacion/esquemas/mis.reservas.PNG)
+</details>
 
 - Página de reseñas (Agregar una reseña)
-<detalles>
+<details>
 <summary>Haga clic para ver esquemas  de la página Agregar reseña</summary>
 
-[img](Documentacion/esquemas/agregar.reseña.PNG)
-</detalles>
+![img](Documentacion/esquemas/agregar.reseña.PNG)
+</details>
 
 - Página de reseñas (lista de reseñas)
-<detalles>
+<details>
 <summary>Haga clic para ver esquemas  de la página de lista de reseñas</summary>
 
-[img](Documentacion/esquemas/Reseñas.PNG)
-</detalles>
+![img](Documentacion/esquemas/Reseñas.PNG)
+</details>
 
 - Página de Blog 
-<detalles>
+<details>
 <summary>Haga clic para ver esquemas  de la página de Blog</summary>
 
-[img](Documentacion/esquemas/blog.PNG)
-</detalles>
+![img](Documentacion/esquemas/blog.PNG)
+</details>
 
 ## Esquema de base de datos
 Los diagramas de entidad-relación (ERD) ayudan al desarrollador a establecer conexiones entre las bases de datos y la información. La creación de un ERD me ayudó a comprender cómo se relacionan las tablas entre sí y su conexión con la base de datos PostgreSQL. Utilicé LucidChart para crear el diagrama y la flecha representa cómo se relacionan los campos de datos entre sí.
 
-Mi modelo de reserva y parte del diseño de mi sitio web se inspiraron en el tutorial del blog del Code Institute y [FreeFido](https://github.com/amylour/FreeFido_v2) y [thebookbooth1](https://github .com/hiboibrahim/thebookbooth1) proyectos durante mi aprendizaje de Django. Me ayudaron a obtener una buena comprensión  para luego desarrollar mis modelos de revisión y contacto.
+Mi modelo de reserva y parte del diseño de mi sitio web se inspiraron en el tutorial del blog del Code Institute y [FreeFido](https://github.com/amylour/FreeFido_v2) y [thebookbooth1](https://github.com/hiboibrahim/thebookbooth1) proyectos durante mi aprendizaje de Django. Me ayudaron a obtener una buena comprensión  para luego desarrollar mis modelos de revisión y contacto.
 
-![img]()
+![img](Documentacion/esquemas/ERD.PNG)
 
 ## CRUD
 La funcionalidad CRUD se implementó tanto en la reserva de cursos como en los comentarios donde:
@@ -155,13 +155,85 @@ En este proyecto, la función "reserva" tiene disponible la funcionalidad CRUD c
 
 La publicación se puede eliminar desde el Panel de administración.
 
-## Data Models
+## Modelo de datos
 
+1. Modelo de usuario AllAuth
+- Django Allauth, el modelo de usuario es el modelo de usuario predeterminado proporcionado por el sistema de autenticación de Django.
+- El usuario solo puede publicar una reseña después de haber reservado una cita y solo dejar una reseña por fecha de reserva.
 
+| Usuario|            |   |
+|----------|:-------------:|------:|
+| id |  AutoField |
+| nombre |  CharField|
+| email|  EmailField   |   
+| contraseña | CharField | 
 
+2. Modelo de reservas
+- Un Usuario puede tener múltiples Reservas, pero cada Reserva está asociada a un solo Usuario. Esto está representado por la relación de clave externa entre Usuario y Reserva.
+- La funcionalidad CRUD completa está disponible para el usuario.
 
+| Reserva|            |   |
+|----------|:-------------:|------:|
+| id |  AutoField | PK|
+| usario |   CharField | FK
+| nombre |  CharField   | 
+| apellido | CharField |  
+| email |  EmailField | 
+| servicio|   CharField  |   FK |
+| fecha | DateTime |    |
+| hora |  CharField |  |
+| comentarios |  TextField |  |
 
+3. Modelo de reseñas
+- Cada usuario puede publicar una reseña después de reservar una cita. Esto está representado por la relación de clave externa entre Usuario y Reseña.
+- Los usuarios pueden dejar una reseña según el servicio que reservaron. Esto está representado por la relación de clave externa entre Servicio y Reseña.
 
+| Reseña|            |   |
+|----------|:-------------:|------:|
+| id |  AutoField | PK|
+| autor |    CharField  |   FK |
+| servicio|    CharField |   FK |
+| creado_el | DateTime | 
+| clasificación| Positive int Field, max=5, min=o   |   
+| texto |  TextField |  |
+
+4. Modelo de servicio 
+- El modelo de servicio está relacionado con el modelo de Reserva y el modelo de Reseña, los usuarios pueden seleccionar un servicio en el momento de reservar una cita. 
+- Los usuarios pueden publicar una reseña según el tipo de servicio recibido (Consulta en línea, Terapia y talleres individuales o familiares)
+
+| Servicio|            |   |
+|----------|:-------------:|------:|
+| id |  AutoField | PK|
+| título |  CharField   |   
+| descripción|  RichTextField   |
+| imagen | CloudinaryField | 
+
+5. Modelo de contacto 
+- Este modelo recibe las solicitudes de publicación y guarda los datos en la base de datos, representados por la relación de clave externa entre el Usuario y el formulario de contacto.
+
+| Contacto|            |   |
+|----------|:-------------:|------:|
+| id |  AutoField | PK|
+| nombre |  CharField   |   
+| email|  EmailField   |   
+| consulta |TextField| 
+| fecha | DateField|
+| leído|BooleanField  |   
+
+5. Modelo de blog
+
+| Blog|            |   |
+|----------|:-------------:|------:|
+| id |  AutoField | PK|
+| título |  CharField | FK
+| slug |  SlugField   | 
+| contenido | TextField |  
+| imagen |  CloudinaryField | 
+| video|  FileField   |   FK |
+| creado_en | DateField |    |
+| extracto |  TextField |  |
+| estado |  IntergerField |  |
+| actualizado_en |  DateField |  |
 
 ### Modelo de usuario de Allauth
 El modelo de usuario se construyó utilizando la biblioteca Allauth de Django.
@@ -195,7 +267,7 @@ El modelo de usuario se construyó utilizando la biblioteca Allauth de Django.
 
 - [Django](https://www.djangoproject.com/): se utiliza como marco de Python para el sitio.
 
-- [ElephantSQL](https://www.elephantsql.com/): se utiliza como base de datos de Postgres.
+- [Aiven](https://console.aiven.io/): se utiliza como base de datos de Postgres.
 
 - [Favicon.io](https://favicon.io/): se utiliza para crear y agregar el favicon a la pestaña del navegador
 
