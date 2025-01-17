@@ -1,28 +1,35 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Create a Booking{% endblock %}
+{% block title %}Deja una reseña{% endblock %}
 {% block content %}
 {% load crispy_forms_tags %}
-<div class="text-center">
+<div class="container my-4 text-center">
     <h1 class="text-center mx-auto titles my-3" id="review">Deja una reseña</h1>
-    <p class="post lead mb-3 justify-text px-3 py-2">Compartir su experiencia con la psicóloga Elvira, ya sea sobre su empatía, profesionalismo o métodos terapéuticos, podría guiar a otros a tomar la decisión de buscar ayuda</p>
-    <p><small>* Todos los campos son requeridos</small></p>
-    <form method="post" class="text-center w-75 mx-auto booking-section">
+    <p class="post lead mb-3 justify-text px-3 py-2">Compartir su experiencia con la psicóloga Elvira, ya sea sobre su empatía, profesionalismo o métodos terapéuticos, podría guiar a otros a tomar la decisión de buscar ayuda.</p>
+    <p class="text-center"><small>* Todos los campos son requeridos</small></p>
+    
+    <form method="post" class="booking-form mx-auto p-4 shadow rounded">
         {% csrf_token %}
         <div class="row">
-            <div class="col m-4 mb-5">
+            <div class="col-12 mb-3">
                 <h4 class="text-center mb-3">Detalles</h4>
-                    {{ form.fecha_de_la_sesión|as_crispy_field|safe }}
-                    {{ form.servicio|as_crispy_field|safe }}
-                    {{ form.clasificación|as_crispy_field|safe}}
-                    {{ form.texto |as_crispy_field|safe}}
-                </div>
             </div>
-        <button type="submit" class="btn btn-outline-custom d-block w-25 mx-auto mb-4">Enviar</button>
+            
+            <div class="col-12">
+                {{ form.fecha_de_la_sesión|as_crispy_field|safe }}
+            </div>
+            <div class="col-12">
+                {{ form.servicio|as_crispy_field|safe }}
+            </div>
+            <div class="col-12">
+                {{ form.clasificación|as_crispy_field|safe }}
+            </div>
+            <div class="col-12">
+                {{ form.texto|as_crispy_field|safe }}
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-outline-custom d-block w-50 mx-auto my-4">Enviar</button>
     </form>
 </div>
-
-
-
-
 {% endblock %}
