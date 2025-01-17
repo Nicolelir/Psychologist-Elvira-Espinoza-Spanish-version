@@ -62,9 +62,11 @@
   <!-- JS to close alert message after 5 seconds from Bootstrap's JS: https://getbootstrap.com/docs/5.0/components/alerts/ -->
   <script>
     setTimeout(function () {
-        let messages = document.getElementById('msg');
-        let alert = new bootstrap.Alert(messages);
-        alert.close();
+        let messages = document.querySelectorAll('.alert.custom-alert'); // Selecciona todas las alertas
+        messages.forEach(function (message) {
+            let alert = new bootstrap.Alert(message);
+            alert.close();  // Cierra la alerta individual
+        });
     }, 5000);
     
 </script>
