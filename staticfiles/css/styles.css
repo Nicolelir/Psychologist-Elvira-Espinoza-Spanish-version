@@ -508,6 +508,14 @@ content: "\2606";
 .image-container-blog {
     position: relative;
 }
+
+/* Establecer un margen superior solo para pantallas pequeñas */
+@media (max-width: 576px) {
+    .row {
+        margin-top: 20px; /* Ajusta el valor según lo que necesites */
+    }
+}
+
  /* Log in */
  .title-login{
     font-family: var(--title);
