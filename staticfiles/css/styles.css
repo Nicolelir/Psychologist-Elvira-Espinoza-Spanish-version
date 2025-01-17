@@ -530,3 +530,32 @@ content: "\2606";
     }
 }
 
+/* Ajuste para pantallas muy pequeñas */
+@media (max-width: 576px) {
+    .icon-booking-btn {
+        width: 20px; /* Reducir el tamaño de los íconos */
+    }
+    .table-responsive {
+        font-size: 0.9rem; /* Reducir el tamaño del texto */
+    }
+    .btn-container {
+        flex-direction: column; /* Botones en una columna */
+    }
+}
+
+@media (max-width: 576px) {
+    .icon-booking-btn {
+        width: 16px; /* Reducir el tamaño del icono */
+        height: 16px; /* Asegurar proporción del icono */
+    }
+    .btn-container {
+        flex-direction: column; /* Botones en una columna */
+    }
+    .table-responsive {
+        font-size: 0.85rem; /* Reducir tamaño del texto en tablas */
+    }
+    .btn {
+        padding: 6px 12px; /* Reducir el tamaño de los botones */
+        font-size: 0.9rem;
+    }
+}
