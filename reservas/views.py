@@ -3,6 +3,8 @@ from django.urls import reverse_lazy
 from django.utils import timezone
 from django.http import JsonResponse
 from datetime import datetime
+from datetime import timedelta
+from dateutil.relativedelta import relativedelta
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
@@ -83,6 +85,22 @@ class AgregaReserva(LoginRequiredMixin, CreateView):
         current_datetime = timezone.now()
         selected_time = datetime.strptime(selected_time_str.split(' - ')[0], '%H:%M').time()
         
+        # Validar si la fecha está dentro de los próximos 6 meses
+        six_months_later = current_datetime + relativedelta(months=6)
+
+        if selected_date < current_datetime.date() or selected_date > six_months_later.date():
+            form.add_error('fecha', f'Por favor ingrese una fecha entre hoy y los próximos 6 meses.')
+            return self.form_invalid(form)
+
+        if (selected_date < current_datetime.date() or
+            (selected_date == current_datetime.date() and
+             selected_time < current_datetime.time())):
+            form.add_error('fecha', 'Por favor ingrese una fecha válida')
+            return self.form_invalid(form)
+
+        messages.success(self.request, "¡Gracias por agendar una hora conmigo! No olvides dejar una reseña después de tu sesión.")
+        return super().form_valid(form)
+
         if (selected_date < current_datetime.date() or
             (selected_date == current_datetime.date() and
              selected_time < current_datetime.time())):
