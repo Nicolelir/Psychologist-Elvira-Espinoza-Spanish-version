@@ -29,7 +29,7 @@ TEMPLATES_DIR = BASE_DIR / 'templates'
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = true
+DEBUG = True
 ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com', '8000-nicolelir-psychologiste-aozrmw9xqkk.ws.codeinstitute-ide.net']
 CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io', 'https://8000-nicolelir-psychologiste-aozrmw9xqkk.ws.codeinstitute-ide.net'] 
 
