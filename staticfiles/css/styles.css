@@ -509,6 +509,8 @@ content: "\2606";
     position: relative;
 }
 
+
+
 /* Establecer un margen superior solo para pantallas pequeñas */
 @media (max-width: 576px) {
     .row {
