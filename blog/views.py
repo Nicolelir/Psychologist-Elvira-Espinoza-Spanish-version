@@ -11,6 +11,28 @@ class PostList(generic.ListView):
     template_name = "blog/blog.html"
     paginate_by = 6
 
+    def get_queryset(self):
+        """
+        Process video links to extract video IDs for embedding.
+        """
+        posts = super().get_queryset()
+        for post in posts:
+            post.video_link = self.process_video_link(post.video_link)
+        return posts
+
+    def process_video_link(self, link):
+        """
+        Extracts video ID from YouTube or Vimeo links.
+        """
+        if link:
+            if "vimeo.com" in link:
+                return link.split("/")[-1]
+            elif "youtube.com/watch?v=" in link:
+                return link.split("v=")[-1]
+            elif "youtu.be" in link:
+                return link.split("/")[-1]
+        return link    
+        
 def post_detail(request, slug):
     """
     Display an individual :model:`blog.Post`.
@@ -29,3 +51,4 @@ def post_detail(request, slug):
         "blog/post_detalle.html",
         {"post": post},
     )
+

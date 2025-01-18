@@ -29,7 +29,7 @@ TEMPLATES_DIR = BASE_DIR / 'templates'
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com', '8000-nicolelir-psychologiste-aozrmw9xqkk.ws.codeinstitute-ide.net']
 CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io', 'https://8000-nicolelir-psychologiste-aozrmw9xqkk.ws.codeinstitute-ide.net'] 
 
@@ -173,6 +173,10 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+
+CLOUDINARY = {
+    'max_file_size': 52428800,  # Límite en bytes (50 MB)
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

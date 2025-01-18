@@ -6,7 +6,7 @@
 <!-- index.html content starts here -->
 <div class="container-fluid">
     <div class="row">
-
+        
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
@@ -14,13 +14,51 @@
                 <div class="col-md-4">
                     <div class="card-blog mb-4">
                         <div class="body-blog">
-                            <div class="image-container-blog">
-                                {% if "placeholder" in post.blog_imagen.url %}
-                                    <img class="card-img-top" src="{% static 'images/default.jpg' %}" alt="placeholder image">
+
+                            <!-- Video Section: Prioritize the video if available -->
+                            {% if post.video_link %}
+                                <div class="video-container mt-3">
+                                    <!-- Check if the video platform is Instagram -->
+                                    {% if "instagram.com" in post.video_link %}
+                                        <!-- Embed Instagram Video -->
+                                        <blockquote class="instagram-media" data-instgrm-permalink="{{ post.video_link }}" data-instgrm-version="13">
+                                            <a href="{{ post.video_link }}"></a>
+                                        </blockquote>
+                                        <script async src="https://www.instagram.com/embed.js"></script>
+                                    {% elif "youtube" in post.video_link %}
+                                        <!-- Embed YouTube Video -->
+                                        {% with post.video_link|slice:"-11:" as video_id %}
+                                        <iframe width="100%" height="200"
+                                                src="https://www.youtube.com/embed/{{ video_id }}"
+                                                frameborder="0" allowfullscreen>
+                                        </iframe>
+                                        {% endwith %}
+                                    {% elif "vimeo" in post.video_link %}
+                                        <!-- Embed Vimeo Video -->
+                                        <iframe src="https://player.vimeo.com/video/{{ post.video_link }}"
+                                                width="100%" height="200" frameborder="0" allowfullscreen>
+                                        </iframe>
+                                    {% else %}
+                                        <!-- Generic Link for Other Videos -->
+                                        <a href="{{ post.video_link }}" target="_blank">
+                                            <img src="{% static 'images/default_video_thumbnail.jpg' %}" 
+                                                 alt="Watch Video" class="img-fluid video-thumbnail">
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <!-- Image Section: If no video, show image -->
+                                {% if post.blog_imagen %}
+                                    <div class="image-container-blog">
+                                        <img class="card-img-top" src="{{ post.blog_imagen.url }}" alt="{{ post.título }}">
+                                    </div>
                                 {% else %}
-                                    <img class="card-img-top" src="{{ post.blog_imagen.url }}" alt="{{ post.título }}">
+                                    <!-- Fallback for no image -->
+                                    <p>No image available</p>
                                 {% endif %}
-                            </div>
+                            {% endif %}
+
+                            <!-- Blog Content -->
                             <a href="{% url 'post_detalle' post.slug %}" class="post-link">
                                 <h2 class="blog-title">{{ post.título }}</h2>
                                 <p class="blog-text">{{ post.extracto }}</p>
@@ -40,6 +78,7 @@
             </div>
         </div>
     </div>
+
     {% if is_paginated %}
     <div class="pagination-wrapper d-flex justify-content-center mt-4">
         <nav aria-label="Page navigation">
