@@ -311,6 +311,22 @@ p.booking {
     }
 }
 
+@media (max-width: 767px) {
+    .container .row {
+        display: flex;
+        flex-direction: column; /* Cambiar la dirección de las columnas a una columna */
+    }
+}
+
+    .container .row .col {
+        width: 100%; /* Hacer que cada columna ocupe el 100% del ancho en pantallas pequeñas */
+    }
+
+    .booking-section {
+        width: 100% !important; /* Asegurarse de que el formulario ocupe todo el ancho disponible en pantallas pequeñas */
+    }
+
+
 /*/// Reviews Page ///*/
 .card-rev {
     width: 18rem;
@@ -370,9 +386,16 @@ content: "\2606";
     }
 }
 
+
+.icon-container {
+    text-align: center;
+}
+
+
 /*/// btn ///*/
 .btn-container {
     display: inline-block;
+    width: 100%;
     text-align: center;
     text-decoration: none;
 }
