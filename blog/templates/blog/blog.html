@@ -17,33 +17,39 @@
                                             
                                             <!-- Video Section: Prioritize the video if available -->
                                             {% if post.video_link %}
-                                                <div class="video-container mt-3">
-                                                    <!-- Check if the video platform is Instagram -->
-                                                    {% if "instagram.com" in post.video_link %}
-                                                        <!-- Embed Instagram Video -->
-                                                        <blockquote class="instagram-media" data-instgrm-permalink="{{ post.video_link }}" data-instgrm-version="13">
-                                                          <a href="{{ post.video_link }}"></a>
-                                                        </blockquote>
-                                                        <script async src="https://www.instagram.com/embed.js"></script>
-                                                    {% elif "youtube" in post.video_link %}
-                                                        <!-- Embed YouTube Video -->
-                                                        <iframe width="100%" height="200"
-                                                                src="https://www.youtube.com/embed/{{ post.video_link }}"
-                                                                frameborder="0" allowfullscreen>
+                                            <div class="video-container mt-3">
+                                                {% if "instagram.com" in post.video_link %}
+                                                    <!-- Embed Instagram Video -->
+                                                    <blockquote class="instagram-media" data-instgrm-permalink="{{ post.video_link }}" data-instgrm-version="13">
+                                                        <a href="{{ post.video_link }}"></a>
+                                                    </blockquote>
+                                                    <script async src="https://www.instagram.com/embed.js"></script>
+                                                {% elif "youtube" in post.video_link %}
+                                                    <!-- Embed YouTube Video -->
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe 
+                                                            class="embed-responsive-item"
+                                                            src="https://www.youtube.com/embed/{{ post.video_link }}"
+                                                            frameborder="0" allowfullscreen>
                                                         </iframe>
-                                                    {% elif "vimeo" in post.video_link %}
-                                                        <!-- Embed Vimeo Video -->
-                                                        <iframe src="https://player.vimeo.com/video/{{ post.video_link }}"
-                                                                width="100%" height="200" frameborder="0" allowfullscreen>
+                                                    </div>
+                                                {% elif "vimeo" in post.video_link %}
+                                                    <!-- Embed Vimeo Video -->
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe 
+                                                            class="embed-responsive-item"
+                                                            src="https://player.vimeo.com/video/{{ post.video_link }}"
+                                                            frameborder="0" allowfullscreen>
                                                         </iframe>
-                                                    {% else %}
-                                                        <!-- Generic Link for Other Videos -->
-                                                        <a href="{{ post.video_link }}" target="_blank">
-                                                            <img src="{% static 'images/default_video_thumbnail.jpg' %}" 
-                                                                 alt="Watch Video" class="img-fluid video-thumbnail">
-                                                        </a>
-                                                    {% endif %}
-                                                </div>
+                                                    </div>
+                                                {% else %}
+                                                    <!-- Generic Link for Other Videos -->
+                                                    <a href="{{ post.video_link }}" target="_blank">
+                                                        <img src="{% static 'images/default_video_thumbnail.jpg' %}" 
+                                                             alt="Watch Video" class="img-fluid video-thumbnail">
+                                                    </a>
+                                                {% endif %}
+                                            </div>
                                             {% else %}
                                                 <!-- Image Section: If no video, show image -->
                                                 {% if post.blog_imagen %}
