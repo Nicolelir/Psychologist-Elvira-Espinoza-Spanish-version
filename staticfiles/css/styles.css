@@ -311,22 +311,6 @@ p.booking {
     }
 }
 
-@media (max-width: 767px) {
-    .container .row {
-        display: flex;
-        flex-direction: column; /* Cambiar la dirección de las columnas a una columna */
-    }
-}
-
-    .container .row .col {
-        width: 100%; /* Hacer que cada columna ocupe el 100% del ancho en pantallas pequeñas */
-    }
-
-    .booking-section {
-        width: 100% !important; /* Asegurarse de que el formulario ocupe todo el ancho disponible en pantallas pequeñas */
-    }
-
-
 /*/// Reviews Page ///*/
 .card-rev {
     width: 18rem;
@@ -360,42 +344,9 @@ p.booking {
 content: "\2606"; 
 }
 
-.booking-form {
-    max-width: 600px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Ajustes para dispositivos móviles */
-@media (max-width: 576px) {
-    .booking-form {
-        padding: 1rem;
-    }
-
-    h1.titles {
-        font-size: 1.5rem;
-    }
-
-    .btn-outline-custom {
-        width: 100%;
-    }
-
-    .post {
-        font-size: 0.9rem;
-    }
-}
-
-
-.icon-container {
-    text-align: center;
-}
-
-
 /*/// btn ///*/
 .btn-container {
     display: inline-block;
-    width: 100%;
     text-align: center;
     text-decoration: none;
 }
@@ -531,21 +482,13 @@ content: "\2606";
 .image-container-blog {
     position: relative;
 }
-
-
-
-/* Establecer un margen superior solo para pantallas pequeñas */
-@media (max-width: 576px) {
-    .row {
-        margin-top: 20px; /* Ajusta el valor según lo que necesites */
-    }
-}
-
  /* Log in */
  .title-login{
     font-family: var(--title);
     padding-top: 30px;
      }
+
+
 
 /*/// Media Queries ///*/
 
@@ -589,32 +532,3 @@ content: "\2606";
     }
 }
 
-/* Ajuste para pantallas muy pequeñas */
-@media (max-width: 576px) {
-    .icon-booking-btn {
-        width: 20px; /* Reducir el tamaño de los íconos */
-    }
-    .table-responsive {
-        font-size: 0.9rem; /* Reducir el tamaño del texto */
-    }
-    .btn-container {
-        flex-direction: column; /* Botones en una columna */
-    }
-}
-
-@media (max-width: 576px) {
-    .icon-booking-btn {
-        width: 16px; /* Reducir el tamaño del icono */
-        height: 16px; /* Asegurar proporción del icono */
-    }
-    .btn-container {
-        flex-direction: column; /* Botones en una columna */
-    }
-    .table-responsive {
-        font-size: 0.85rem; /* Reducir tamaño del texto en tablas */
-    }
-    .btn {
-        padding: 6px 12px; /* Reducir el tamaño de los botones */
-        font-size: 0.9rem;
-    }
-}

@@ -7,107 +7,69 @@
 <div class="container-fluid">
     <div class="row">
         
-                        <!-- Blog Entries Column -->
-                        <div class="col-12 mt-3 left">
-                            <div class="row">
-                                {% for post in post_list %}
-                                <div class="col-md-4">
-                                    <div class="card-blog mb-4">
-                                        <div class="body-blog">
-                                            
-                                            <!-- Video Section: Prioritize the video if available -->
-                                            {% if post.video_link %}
-                                            <div class="video-container mt-3">
-                                                {% if "instagram.com" in post.video_link %}
-                                                    <!-- Embed Instagram Video -->
-                                                    <blockquote class="instagram-media" data-instgrm-permalink="{{ post.video_link }}" data-instgrm-version="13">
-                                                        <a href="{{ post.video_link }}"></a>
-                                                    </blockquote>
-                                                    <script async src="https://www.instagram.com/embed.js"></script>
-                                                {% elif "youtube" in post.video_link %}
-                                                    <!-- Embed YouTube Video -->
-                                                    <div class="embed-responsive embed-responsive-16by9">
-                                                        <iframe 
-                                                            class="embed-responsive-item"
-                                                            src="https://www.youtube.com/embed/{{ post.video_link }}"
-                                                            frameborder="0" allowfullscreen>
-                                                        </iframe>
-                                                    </div>
-                                                {% elif "vimeo" in post.video_link %}
-                                                    <!-- Embed Vimeo Video -->
-                                                    <div class="embed-responsive embed-responsive-16by9">
-                                                        <iframe 
-                                                            class="embed-responsive-item"
-                                                            src="https://player.vimeo.com/video/{{ post.video_link }}"
-                                                            frameborder="0" allowfullscreen>
-                                                        </iframe>
-                                                    </div>
-                                                {% else %}
-                                                    <!-- Generic Link for Other Videos -->
-                                                    <a href="{{ post.video_link }}" target="_blank">
-                                                        <img src="{% static 'images/default_video_thumbnail.jpg' %}" 
-                                                             alt="Watch Video" class="img-fluid video-thumbnail">
-                                                    </a>
-                                                {% endif %}
-                                            </div>
-                                            {% else %}
-                                                <!-- Image Section: If no video, show image -->
-                                                {% if post.blog_imagen %}
-                                                    <div class="image-container-blog">
-                                                        <img class="card-img-top" src="{{ post.blog_imagen.url }}" alt="{{ post.título }}">
-                                                    </div>
-                                                {% else %}
-                                                    <!-- Fallback for no image -->
-                                                    <p>No image available</p>
-                                                {% endif %}
-                                            {% endif %}
-                                            
-                                            <!-- Blog Content -->
-                                            <a href="{% url 'post_detalle' post.slug %}" class="post-link">
-                                                <h2 class="blog-title">{{ post.título }}</h2>
-                                                <p class="blog-text">{{ post.extracto }}</p>
-                                            </a>
-                
-                                            <hr />
-                                            <p class="blog-text text-muted h6">{{ post.creado_en|date:"F d, Y" }}</p>
-                                        </div>
-                                    </div>
+        <!-- Blog Entries Column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for post in post_list %}
+                <div class="col-md-4">
+                    <div class="card-blog mb-4">
+                        <div class="body-blog">
+                            
+                            <!-- Image Section: Show image if available -->
+                            {% if post.blog_imagen %}
+                                <div class="image-container-blog">
+                                    <img class="card-img-top" src="{{ post.blog_imagen.url }}" alt="{{ post.título }}">
                                 </div>
-                                {% if forloop.counter|divisibleby:3 %}
-                            </div>
-                            <div class="row">
-                                {% endif %}
-                                {% endfor %}
-                
-                            </div>
+                            {% else %}
+                                <!-- Fallback for no image -->
+                                <p>No image available</p>
+                            {% endif %}
+                            
+                            <!-- Blog Content -->
+                            <a href="{% url 'post_detalle' post.slug %}" class="post-link">
+                                <h2 class="blog-title">{{ post.título }}</h2>
+                                <p class="blog-text">{{ post.extracto }}</p>
+                            </a>
+
+                            <hr />
+                            <p class="blog-text text-muted h6">{{ post.creado_en|date:"F d, Y" }}</p>
                         </div>
                     </div>
-                    {% if is_paginated %}
-                    <div class="pagination-wrapper d-flex justify-content-center mt-4">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination">
-                                {% if page_obj.has_previous %}
-                                <li class="page-item">
-                                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
-                                </li>
-                                {% endif %}
-                                
-                                {% for num in page_obj.paginator.page_range %}
-                                {% if num == page_obj.number %}
-                                <li class="page-item active"><span class="page-link">{{ num }}</span></li>
-                                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-                                <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-                                {% endif %}
-                                {% endfor %}
-                                
-                                {% if page_obj.has_next %}
-                                <li class="page-item">
-                                    <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
-                                </li>
-                                {% endif %}
-                            </ul>
-                        </nav>
-                    </div>
-                    {% endif %}
                 </div>
-                {% endblock %}
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+    <div class="pagination-wrapper d-flex justify-content-center mt-4">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+                </li>
+                {% endif %}
+                
+                {% for num in page_obj.paginator.page_range %}
+                {% if num == page_obj.number %}
+                <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                {% endif %}
+                {% endfor %}
+                
+                {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

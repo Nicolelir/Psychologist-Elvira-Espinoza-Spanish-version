@@ -1,42 +1,85 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 
 {% block content %}
 
 <div class="masthead">
-<div class="container">
-    <div class="row g-0">
-        <div class="col-md-6 masthead-text">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-md-12 masthead-text">
                 <h1 class="post-title">{{ post.título }}</h1>
                 <p class="post-subtitle">{{ post.creado_el }}</p>
             </div>
 
             <!-- Post featured image -->
             <div class="d-none d-md-block col-md-6 masthead-image">
-                        {% if "placeholder" in post.featured_image.url %}
-                            <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
-                        {% else %}
-                            <img src="{{ post.featured_image.url }}" class="scale" alt="{{ post.title }}">
-                        {% endif %}
-                    </div>
-                </div>
+                {% if "placeholder" in post.featured_image.url %}
+                    <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
+                {% else %}
+                    <img src="{{ post.featured_image.url }}" class="scale" alt="{{ post.title }}">
+                {% endif %}
             </div>
         </div>
-  
+    </div>
+</div>
+
+<!-- Video Section -->
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        {% if post.video_link %}
+            <div class="col-12 video-container">
+                {% if "instagram.com" in post.video_link %}
+                    <!-- Embed Instagram Video -->
+                    <blockquote class="instagram-media" data-instgrm-permalink="{{ post.video_link }}" data-instgrm-version="13">
+                        <a href="{{ post.video_link }}"></a>
+                    </blockquote>
+                    <script async src="https://www.instagram.com/embed.js"></script>
+                {% elif "youtube" in post.video_link %}
+                    <!-- Embed YouTube Video -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe 
+                            class="embed-responsive-item"
+                            src="https://www.youtube.com/embed/{{ post.video_link }}"
+                            frameborder="0" allowfullscreen>
+                        </iframe>
+                    </div>
+                {% elif "vimeo" in post.video_link %}
+                    <!-- Embed Vimeo Video -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe 
+                            class="embed-responsive-item"
+                            src="https://player.vimeo.com/video/{{ post.video_link }}"
+                            frameborder="0" allowfullscreen>
+                        </iframe>
+                    </div>
+                {% else %}
+                    <!-- Generic Link for Other Videos -->
+                    <a href="{{ post.video_link }}" target="_blank">
+                        <img src="{% static 'images/default_video_thumbnail.jpg' %}" 
+                             alt="Watch Video" class="img-fluid video-thumbnail">
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
 <!-- Post Content Section -->
 <div class="container">
     <div class="row">
-        <div class="col card  mb-4  mt-3 left  top">
+        <div class="col card mb-4 mt-3 left top">
             <div class="card-body-blog">
                 <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
                 <article class="card-text-blog">
                     {{ post.contenido | safe }}
                 </article>
             </div>
         </div>
     </div>
+    <p class="text-center m-3 signup">
+        <a href="{% url 'blog' %}" class="btn btn-outline-custom w-35 mx-auto mb-4">Vuelve al Blog</a>
+    </p>
+</div>
 
-    <p class="text-center m-3 signup"><a href="{% url 'blog' %}" class="btn btn-outline-custom w-35 mx-auto mb-4">Vuelve al Blog</a></p>
 {% endblock %}
