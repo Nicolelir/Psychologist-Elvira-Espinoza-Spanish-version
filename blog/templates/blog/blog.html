@@ -14,16 +14,14 @@
                 <div class="col-md-4">
                     <div class="card-blog mb-4">
                         <div class="body-blog">
-                            
-                            <!-- Image Section: Show image if available -->
+                           
                             {% if post.blog_imagen %}
-                                <div class="image-container-blog">
-                                    <img class="card-img-top" src="{{ post.blog_imagen.url }}" alt="{{ post.título }}">
-                                </div>
-                            {% else %}
-                                <!-- Fallback for no image -->
-                                <p>No image available</p>
-                            {% endif %}
+                            <img class="card-img-top" src="{{ post.blog_imagen.url }}" alt="{{ post.título }}">
+                        {% else %}
+                            <img class="card-img-top" src="{% static 'images/logo3.png' %}" alt="placeholder image">
+                        {% endif %}
+
+                            
                             
                             <!-- Blog Content -->
                             <a href="{% url 'post_detalle' post.slug %}" class="post-link">
